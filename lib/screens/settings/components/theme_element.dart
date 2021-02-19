@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:nfc_mobile/models/settings_screen.dart';
 import 'package:nfc_mobile/models/theme.dart';
 import 'package:provider/provider.dart';

@@ -5,10 +5,4 @@ class ProfileScreenLogic {
   final ProfileScreenModel _model;
 
   ProfileScreenLogic(this._model);
-
-  void onTapProfileEdit() {
-    // TODO: Redirect to profile editor
-    debugPrint('tap registered');
-    //_model.refresh();
-  }
 }

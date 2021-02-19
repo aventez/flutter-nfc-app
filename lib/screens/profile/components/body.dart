@@ -8,13 +8,14 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final count = 5;
+    final count = 1;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Container(
         height: size.height * 0.48,
         child: count >= 1
             ? SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
                 child: Column(
                   children: [
                     ProfileLink(
@@ -58,6 +59,7 @@ class Body extends StatelessWidget {
                       login: '+49 5554 44 333',
                     ),
                     ProfileButtons(),
+                    SizedBox(height: size.height * 0.03),
                   ],
                 ),
               )

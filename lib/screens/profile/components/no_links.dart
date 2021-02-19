@@ -16,8 +16,11 @@ class NoLinks extends StatelessWidget {
         children: [
           Text(
             'You do not have any links added to your account yet.',
+            style: TextStyle(
+              color: palette.textLightColor,
+              fontSize: 18.0,
+            ),
             textAlign: TextAlign.center,
-            style: TextStyle(color: palette.textLightColor),
           ),
           SizedBox(height: size.height * 0.13),
           RoundedButton(

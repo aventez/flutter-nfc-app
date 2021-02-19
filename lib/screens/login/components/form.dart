@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nfc_mobile/models/theme.dart';
+import 'package:nfc_mobile/utils/widgets/rounded_button.dart';
+import 'package:provider/provider.dart';
 
 class LoginForm extends StatefulWidget {
   @override
@@ -11,7 +14,6 @@ class LoginFormState extends State<LoginForm> {
   Widget _emailField() {
     return TextFormField(
       decoration: InputDecoration(
-        prefixIcon: Icon(Icons.person_outline),
         floatingLabelBehavior: FloatingLabelBehavior.never,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
@@ -29,19 +31,11 @@ class LoginFormState extends State<LoginForm> {
 
   Widget _passwordField() {
     return TextFormField(
-      obscureText: true,
       decoration: InputDecoration(
-        fillColor: Color(0xFFf5f5f5),
-        filled: true,
-        prefixIcon: Icon(Icons.lock_outline),
-        prefixStyle: TextStyle(
-          color: Colors.black,
-        ),
         suffixIcon: Icon(Icons.remove_red_eye),
         floatingLabelBehavior: FloatingLabelBehavior.never,
         border: OutlineInputBorder(
-          borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.circular(10.0),
         ),
         labelText: 'Password',
       ),
@@ -57,6 +51,8 @@ class LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final theme = Provider.of<ThemeModel>(context);
+    final palette = theme.logic.getPalette();
     return Form(
       key: _formKey,
       child: Column(
@@ -64,20 +60,42 @@ class LoginFormState extends State<LoginForm> {
           _emailField(),
           SizedBox(height: size.height * 0.03),
           _passwordField(),
-          SizedBox(height: size.height * 0.05),
+          SizedBox(height: size.height * 0.04),
           SizedBox(
-            width: size.width,
-            height: size.height * 0.08,
-            child: ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState.validate()) {}
-              },
-              style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all<Color>(Color(0xFFBA9B5C)),
-              ),
-              child: Text('SIGN IN'),
+            width: size.width * 0.30,
+            height: size.height * 0.05,
+            child: RoundedButton(
+              textColor: Colors.white,
+              content: 'Sign in',
+              backgroundColor: palette.primaryColor,
+              onPressed: () => {},
+              borderRadius: BorderRadius.circular(8.0),
+              textStyle: TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0),
             ),
+          ),
+          SizedBox(height: size.height * 0.03),
+          RichText(
+            text: TextSpan(
+              style: new TextStyle(
+                fontSize: 15.0,
+                color: Colors.black,
+              ),
+              children: <TextSpan>[
+                TextSpan(text: 'Do not have an account yet? '),
+                TextSpan(
+                  text: 'Sign up',
+                  style: TextStyle(
+                    color: palette.primaryColor,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              ],
+            ),
+          ),
+          SizedBox(height: size.height * 0.03),
+          Text(
+            'I forget the password.',
+            style: TextStyle(color: palette.textLightColor),
           ),
         ],
       ),

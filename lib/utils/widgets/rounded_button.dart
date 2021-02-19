@@ -4,9 +4,11 @@ class RoundedButton extends StatelessWidget {
   final String content;
   final Color backgroundColor;
   final Color textColor;
+  final TextStyle textStyle;
   final Icon icon;
   final EdgeInsetsGeometry padding;
   final Function onPressed;
+  final BorderRadiusGeometry borderRadius;
 
   const RoundedButton({
     @required this.content,
@@ -15,6 +17,8 @@ class RoundedButton extends StatelessWidget {
     @required this.onPressed,
     this.icon,
     this.padding,
+    this.textStyle,
+    this.borderRadius = const BorderRadius.all(Radius.circular(30)),
   });
 
   @override
@@ -27,12 +31,12 @@ class RoundedButton extends StatelessWidget {
         backgroundColor: this.backgroundColor,
         padding: this.padding,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30.0),
+          borderRadius: this.borderRadius,
         ),
       ),
       label: Text(
         content,
-        style: TextStyle(fontWeight: FontWeight.w400),
+        style: this.textStyle ?? TextStyle(fontWeight: FontWeight.w400),
       ),
     );
   }

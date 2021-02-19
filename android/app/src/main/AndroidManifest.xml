@@ -2,7 +2,7 @@
     package="com.example.nfc_mobile">
    <application
         android:label="nfc_mobile"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

@@ -22,7 +22,7 @@ class ProfileLink extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 10.0),
       child: Container(
         width: size.width,
-        height: size.height * 0.08,
+        height: size.height * 0.065,
         decoration: BoxDecoration(
           color: palette.primaryColor,
           borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -46,7 +46,9 @@ class ProfileLink extends StatelessWidget {
                 Text(
                   this.platform,
                   style: TextStyle(
-                      fontSize: 17, color: Colors.black.withOpacity(0.75)),
+                    fontSize: 17,
+                    color: Colors.black.withOpacity(0.6),
+                  ),
                 ),
                 Expanded(
                   child: Padding(
@@ -55,7 +57,7 @@ class ProfileLink extends StatelessWidget {
                       this.login,
                       style: TextStyle(
                         fontSize: 17,
-                        color: palette.textLightColor,
+                        color: palette.primaryColor.withOpacity(0.5),
                       ),
                       textAlign: TextAlign.right,
                     ),

@@ -1,16 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:nfc_mobile/models/theme.dart';
-
-/*
-
-const kPrimaryColor = Color(0xFFE96137); // GREEN: Color(0xFF7AA052);
-const kSecondaryColor = Color(0xFFFFE0B2);
-const kContrastColor = Colors.black;
-const kTextColor = Colors.black;
-const kTextLightColor = Colors.grey;
-
-
-*/
 
 class Palette {
   final Color primaryColor;
@@ -34,6 +24,15 @@ class ThemeLogic {
   void changeTheme(int index) {
     _model.themeId = index;
     _model.refresh();
+
+    Fluttertoast.showToast(
+      msg: "Theme was changed",
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      backgroundColor: Colors.grey,
+      textColor: Colors.white,
+      fontSize: 16.0,
+    );
   }
 
   Palette getPalette() {

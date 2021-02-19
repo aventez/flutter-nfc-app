@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nfc_mobile/common/providers.dart';
+import 'package:nfc_mobile/logic/theme.dart';
 import 'package:nfc_mobile/screens/login/login.dart';
 import 'package:nfc_mobile/screens/nfc/nfc.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
@@ -26,24 +27,27 @@ class _HomeState extends State<Home> {
     ];
   }
 
-  List<PersistentBottomNavBarItem> _buildNavigationItems(Color primary) {
+  List<PersistentBottomNavBarItem> _buildNavigationItems(Palette palette) {
     return [
       PersistentBottomNavBarItem(
         icon: Icon(Icons.person),
         title: "Profile",
-        activeColor: primary.withOpacity(0.75),
+        activeColor: palette.secondaryColor,
+        activeColorAlternate: palette.primaryColor,
         inactiveColor: Colors.grey.withOpacity(0.35),
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.nfc_outlined),
         title: "NFC Scan",
-        activeColor: primary.withOpacity(0.75),
+        activeColor: palette.secondaryColor,
+        activeColorAlternate: palette.primaryColor,
         inactiveColor: Colors.grey.withOpacity(0.35),
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.settings_outlined),
         title: "Settings",
-        activeColor: primary.withOpacity(0.75),
+        activeColor: palette.secondaryColor,
+        activeColorAlternate: palette.primaryColor,
         inactiveColor: Colors.grey.withOpacity(0.35),
       ),
     ];
@@ -63,7 +67,7 @@ class _HomeState extends State<Home> {
       context,
       controller: _controller,
       screens: _buildScreens(),
-      items: _buildNavigationItems(palette.primaryColor),
+      items: _buildNavigationItems(palette),
       backgroundColor: Colors.grey.shade200,
       resizeToAvoidBottomInset: true,
       decoration: NavBarDecoration(
@@ -80,7 +84,7 @@ class _HomeState extends State<Home> {
         curve: Curves.ease,
         duration: Duration(milliseconds: 200),
       ),
-      navBarStyle: NavBarStyle.style12,
+      navBarStyle: NavBarStyle.style7,
     );
   }
 }

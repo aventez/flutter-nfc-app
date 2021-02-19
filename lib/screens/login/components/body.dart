@@ -8,6 +8,7 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SingleChildScrollView(
+      physics: BouncingScrollPhysics(),
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: size.height * 0.15),
         child: Center(
@@ -15,7 +16,6 @@ class Body extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Logo(width: size.width * 0.35),
               SizedBox(height: size.height * 0.07),
               SignInHeader(),
               SizedBox(height: size.height * 0.05),
@@ -27,6 +27,8 @@ class Body extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(height: size.height * 0.12),
+              Logo(width: size.width * 0.35),
             ],
           ),
         ),
