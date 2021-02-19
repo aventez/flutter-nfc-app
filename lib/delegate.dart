@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:nfc_mobile/home.dart';
+import 'package:nfc_mobile/models/auth.dart';
 import 'package:provider/provider.dart';
-
-import 'home.dart';
-import 'models/auth.dart';
 
 class AppDelegate extends StatelessWidget {
   Widget buildChild(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        brightness: Brightness.light,
-        primaryColor: Colors.deepOrange,
+        scaffoldBackgroundColor: Colors.white,
+        primaryColor: Colors.grey.shade200,
       ),
       home: Home(),
     );

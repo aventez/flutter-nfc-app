@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:nfc_mobile/common/providers.dart';
+import 'package:nfc_mobile/screens/login/login.dart';
+import 'package:nfc_mobile/screens/nfc/nfc.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:provider/provider.dart';
-import 'package:nfc_mobile/utils/widgets/bottomNavBar.dart';
 import 'models/auth.dart';
+import 'models/theme.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -9,159 +13,74 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final GlobalKey<NavigatorState> profileTab = GlobalKey<NavigatorState>();
-  final GlobalKey<NavigatorState> nfcTab = GlobalKey<NavigatorState>();
-  final GlobalKey<NavigatorState> settingsTab = GlobalKey<NavigatorState>();
+  PersistentTabController _controller =
+      PersistentTabController(initialIndex: 0);
 
-  _buildScreen(int index) {
-    switch (index) {
-      case 0:
-        return Scaffold(body: Text('Profile tab')); // TODO: Profile tab
-      case 1:
-        return Scaffold(body: Text('Scan tab')); // TODO: NFC Scan tab
-      case 2:
-        return Scaffold(body: Text('')); // TODO: Settings tab
-    }
-  }
+  ProviderConfig _providerConfig = ProviderConfig.getInstance();
 
-  GlobalKey<NavigatorState> getNavigatorKey(int index) {
-    switch (index) {
-      case 0:
-        return profileTab;
-      case 1:
-        return nfcTab;
-      case 2:
-        return settingsTab;
-      default:
-        return profileTab;
-    }
-  }
-
-  List<BottomNavigationBarItem> _buildNavigationItems() {
+  _buildScreens() {
     return [
-      BottomNavigationBarItem(
-        icon: Icon(Icons.person_outline),
-        activeIcon: Icon(Icons.person),
-        label: 'Profile',
+      _providerConfig.getProfileScreen(),
+      NfcScreen(),
+      _providerConfig.getSettingsScreen(),
+    ];
+  }
+
+  List<PersistentBottomNavBarItem> _buildNavigationItems(Color primary) {
+    return [
+      PersistentBottomNavBarItem(
+        icon: Icon(Icons.person),
+        title: "Profile",
+        activeColor: primary.withOpacity(0.75),
+        inactiveColor: Colors.grey.withOpacity(0.35),
       ),
-      BottomNavigationBarItem(
+      PersistentBottomNavBarItem(
         icon: Icon(Icons.nfc_outlined),
-        activeIcon: Icon(Icons.nfc),
-        label: 'NFC Scan',
+        title: "NFC Scan",
+        activeColor: primary.withOpacity(0.75),
+        inactiveColor: Colors.grey.withOpacity(0.35),
       ),
-      BottomNavigationBarItem(
+      PersistentBottomNavBarItem(
         icon: Icon(Icons.settings_outlined),
-        activeIcon: Icon(Icons.settings),
-        label: 'Settings',
-      )
+        title: "Settings",
+        activeColor: primary.withOpacity(0.75),
+        inactiveColor: Colors.grey.withOpacity(0.35),
+      ),
     ];
   }
 
   @override
   Widget build(BuildContext context) {
     final auth = Provider.of<AuthModel>(context);
+    final theme = Provider.of<ThemeModel>(context);
+    final palette = theme.logic.getPalette();
 
     if (auth.activeAccount == null) {
-      //return LoginView();
+      //return LoginScreen();
     }
 
-    final navigationItems = _buildNavigationItems();
-
-    return Scaffold(
-      appBar: CustomAppBar(),
-      body: IndexedStack(
-        index: auth.activeTab,
-        children: [
-          for (var i = 0; i < navigationItems.length; i++) _buildScreen(i)
-        ],
+    return PersistentTabView(
+      context,
+      controller: _controller,
+      screens: _buildScreens(),
+      items: _buildNavigationItems(palette.primaryColor),
+      backgroundColor: Colors.grey.shade200,
+      resizeToAvoidBottomInset: true,
+      decoration: NavBarDecoration(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(25.0), topRight: Radius.circular(25.0)),
+        colorBehindNavBar: palette.primaryColor,
       ),
-      bottomNavigationBar:
-          BottomNavBar(navigationItems: navigationItems, auth: auth),
-    );
-  }
-}
-
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  @override
-  final Size preferredSize;
-
-  CustomAppBar() : preferredSize = Size.fromHeight(145.0);
-
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return SizedBox(
-      height: size.height * 0.2,
-      child: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).scaffoldBackgroundColor,
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(12),
-            bottomRight: Radius.circular(12),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.25),
-              blurRadius: 10.0,
-              offset: Offset(-2, 3),
-            ),
-          ],
-        ),
-        child: Container(
-          margin: EdgeInsets.only(top: 25.0, left: 35.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                height: size.height * 0.09,
-                width: size.height * 0.09,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Theme.of(context).primaryColor,
-                  /*image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: Test()
-                      ),*/
-                ),
-              ),
-              SizedBox(width: 10),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Filip',
-                    style: TextStyle(
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.w500,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ),
-                  SizedBox(height: 2),
-                  Text('Since 22.11.2020',
-                      style: TextStyle(
-                        fontSize: 10.0,
-                      )),
-                ],
-              ),
-              /*Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Filip',
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w500,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ),
-                  Text('F')
-                ],
-              ),*/
-            ],
-          ),
-        ),
+      itemAnimationProperties: ItemAnimationProperties(
+        duration: Duration(milliseconds: 200),
+        curve: Curves.ease,
       ),
+      screenTransitionAnimation: ScreenTransitionAnimation(
+        animateTabTransition: true,
+        curve: Curves.ease,
+        duration: Duration(milliseconds: 200),
+      ),
+      navBarStyle: NavBarStyle.style12,
     );
   }
 }
