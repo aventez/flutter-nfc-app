@@ -7,7 +7,7 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseScaffold(
       body: Theme(
-        data: Theme.of(context).copyWith(primaryColor: Color(0xFFBA9B5C)),
+        data: Theme.of(context).copyWith(primaryColor: Color(0xFFE96137)),
         child: Body(),
       ),
     );

@@ -35,10 +35,9 @@ class Body extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          global.providerConfig.getRegisterScreen(),
-                    ),
+                    MaterialPageRoute(builder: (context) {
+                      return global.providerConfig.getRegisterScreen();
+                    }),
                   );
                 },
                 child: RichText(

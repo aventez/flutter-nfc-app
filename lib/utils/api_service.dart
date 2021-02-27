@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:idrop/json/user_basic.dart';
@@ -46,5 +45,22 @@ class ApiService {
     }
   }
 
-  Function register() {}
+  Future<String> register(String email, String password) async {
+    final result = await this.apiStrategy.post('auth/register', {
+      'email': email,
+      'password': password,
+    });
+    if (result.statusCode == 201) {
+      return result.body;
+    } else {
+      await Fluttertoast.showToast(
+        msg: "Account with that email already exists",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
+        fontSize: 16.0,
+      );
+
+      return null;
+    }
+  }
 }

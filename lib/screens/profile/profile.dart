@@ -10,7 +10,12 @@ class ProfileScreen extends StatelessWidget {
     final global = Provider.of<GlobalModel>(context);
     return Scaffold(
       body: Center(
-          child: Container(child: Text(json.encode(global.activeAccount)))),
+        child: Container(
+          child: Text(
+            json.encode(global.activeAccount),
+          ),
+        ),
+      ),
     );
   }
 }

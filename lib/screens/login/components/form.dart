@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:form_validator/form_validator.dart';
-import 'package:idrop/models/screens/login_screen.dart';
 import 'package:idrop/screens/login/components/email_field.dart';
 import 'package:idrop/screens/login/components/password_field.dart';
 import 'package:idrop/screens/login/components/recover_password.dart';
