@@ -1,4 +1,8 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:idrop/json/user_basic.dart';
 import 'package:idrop/utils/api_strategy.dart';
 
 class ApiService {
@@ -10,14 +14,37 @@ class ApiService {
   }
 
   /* Logic section */
-  Future<String> getUserBasicInfo() async {
+  Future<UserBasicInfo> getUserBasicInfo() async {
     final result = await this.apiStrategy.get('user/info');
-    debugPrint(result);
-    return result;
+    if (result.statusCode == 200) {
+      final user = UserBasicInfo.fromJson(json.decode(result.body));
+      return user;
+    } else {
+      return null;
+    }
   }
 
   Function getUserSettingsInfo() {}
   Function updateUserSettingsInfo() {}
-  Function login() {}
+
+  Future<String> login(String email, String password) async {
+    final result = await this.apiStrategy.post('auth/login', {
+      'email': email,
+      'password': password,
+    });
+    if (result.statusCode == 201) {
+      return result.body;
+    } else {
+      await Fluttertoast.showToast(
+        msg: "Wrong credentials provided",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
+        fontSize: 16.0,
+      );
+
+      return null;
+    }
+  }
+
   Function register() {}
 }

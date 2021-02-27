@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:idrop/models/common/global.dart';
-import 'package:idrop/models/screens/login_screen.dart';
-import 'package:idrop/screens/login/components/form.dart';
+import 'package:idrop/models/screens/register_screen.dart';
+import 'package:idrop/screens/register/components/form.dart';
 import 'package:provider/provider.dart';
 
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final model = Provider.of<LoginScreenModel>(context);
-    final global = Provider.of<GlobalModel>(context);
+    final model = Provider.of<RegisterScreenModel>(context);
     return Stack(
       children: [
         ListView(
@@ -20,44 +18,15 @@ class Body extends StatelessWidget {
             SizedBox(height: size.height * 0.12),
             Center(
               child: Image.asset(
-                'assets/login_artwork.png',
+                'assets/register_artwork.png',
                 width: size.width * 0.5,
               ),
             ),
             SizedBox(height: size.height * 0.05),
-            Text('Sign in',
+            Text('Sign up',
                 style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold)),
             SizedBox(height: size.height * 0.03),
-            LoginForm(),
-            SizedBox(height: size.height * 0.04),
-            Center(
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          global.providerConfig.getRegisterScreen(),
-                    ),
-                  );
-                },
-                child: RichText(
-                  text: TextSpan(
-                    text: 'Don\'t have an account? ',
-                    style: TextStyle(color: Colors.grey),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: 'Sign up!',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey.shade700,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            RegisterForm(),
           ],
         ),
         model.requestInQueue

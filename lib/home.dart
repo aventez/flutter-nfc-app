@@ -1,6 +1,5 @@
 import 'package:idrop/models/common/global.dart';
 import 'package:idrop/models/common/theme.dart';
-import 'package:idrop/screens/login/login.dart';
 import 'package:idrop/utils/interfaces/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
@@ -49,7 +48,7 @@ class Home extends StatelessWidget {
     final palette = theme.getPalette();
 
     if (global.activeAccount == null) {
-      return LoginScreen();
+      return global.providerConfig.getLoginScreen();
     }
 
     return PersistentTabView(

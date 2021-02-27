@@ -1,5 +1,7 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 
 class ApiStrategy {
   static final String apiUrl = "https://backend-bkk7j.ondigitalocean.app";
@@ -8,41 +10,34 @@ class ApiStrategy {
 
   ApiStrategy(this.token);
 
-  Future<String> get(String path) async {
+  Future<Response> get(String path) async {
     final response = await http.get(
       '$apiUrl/$path',
       headers: {HttpHeaders.authorizationHeader: 'Bearer $token'},
     );
 
-    return response.body;
+    return response;
   }
 
-  Future<String> delete(String path) async {
+  Future<Response> delete(String path) async {
     final response = await http.delete(
       '$apiUrl/$path',
       headers: {HttpHeaders.authorizationHeader: 'Bearer $token'},
     );
 
-    return response.body;
+    return response;
   }
 
-  Future<String> post(String path) async {
-    // TODO: form data
+  Future<Response> post(String path, Map<String, dynamic> data) async {
     final response = await http.post(
       '$apiUrl/$path',
-      headers: {HttpHeaders.authorizationHeader: 'Bearer $token'},
+      headers: {
+        HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',
+        HttpHeaders.authorizationHeader: 'Bearer $token',
+      },
+      body: json.encode(data),
     );
 
-    return response.body;
-  }
-
-  Future<String> put(String path) async {
-    // TODO: form data
-    final response = await http.put(
-      '$apiUrl/$path',
-      headers: {HttpHeaders.authorizationHeader: 'Bearer $token'},
-    );
-
-    return response.body;
+    return response;
   }
 }
