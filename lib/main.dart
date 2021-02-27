@@ -1,24 +1,25 @@
+import 'package:idrop/app.dart';
+import 'package:idrop/models/common/global.dart';
+import 'package:idrop/models/common/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:nfc_mobile/models/theme.dart';
 import 'package:provider/provider.dart';
 
-import 'delegate.dart';
-import 'models/auth.dart';
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-void main() async {
-  final authModel = AuthModel();
+  final globalModel = GlobalModel();
   final themeModel = ThemeModel();
 
   await Future.wait([
-    authModel.init(),
+    globalModel.init(),
     themeModel.init(),
   ]);
 
   runApp(MultiProvider(
     providers: [
-      ChangeNotifierProvider(create: (context) => authModel),
       ChangeNotifierProvider(create: (context) => themeModel),
+      ChangeNotifierProvider(create: (context) => globalModel),
     ],
-    child: AppDelegate(),
+    child: App(),
   ));
 }

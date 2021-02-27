@@ -1,29 +1,18 @@
+import 'package:idrop/models/common/global.dart';
+import 'package:idrop/models/common/theme.dart';
+import 'package:idrop/screens/login/login.dart';
+import 'package:idrop/utils/interfaces/palette.dart';
 import 'package:flutter/material.dart';
-import 'package:nfc_mobile/common/providers.dart';
-import 'package:nfc_mobile/logic/theme.dart';
-import 'package:nfc_mobile/screens/login/login.dart';
-import 'package:nfc_mobile/screens/nfc/nfc.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:provider/provider.dart';
-import 'models/auth.dart';
-import 'models/theme.dart';
 
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  PersistentTabController _controller =
-      PersistentTabController(initialIndex: 0);
-
-  ProviderConfig _providerConfig = ProviderConfig.getInstance();
-
-  _buildScreens() {
+class Home extends StatelessWidget {
+  _buildScreens(BuildContext context) {
+    final global = Provider.of<GlobalModel>(context);
     return [
-      _providerConfig.getProfileScreen(),
-      NfcScreen(),
-      _providerConfig.getSettingsScreen(),
+      global.providerConfig.getProfileScreen(),
+      global.providerConfig.getNfcScreen(),
+      global.providerConfig.getSettingsScreen(),
     ];
   }
 
@@ -55,24 +44,26 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    final auth = Provider.of<AuthModel>(context);
     final theme = Provider.of<ThemeModel>(context);
-    final palette = theme.logic.getPalette();
+    final global = Provider.of<GlobalModel>(context);
+    final palette = theme.getPalette();
 
-    if (auth.activeAccount == null) {
-      //return LoginScreen();
+    if (global.activeAccount == null) {
+      return LoginScreen();
     }
 
     return PersistentTabView(
       context,
-      controller: _controller,
-      screens: _buildScreens(),
+      controller: global.controller,
+      screens: _buildScreens(context),
       items: _buildNavigationItems(palette),
       backgroundColor: Colors.grey.shade200,
       resizeToAvoidBottomInset: true,
       decoration: NavBarDecoration(
         borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(25.0), topRight: Radius.circular(25.0)),
+          topLeft: Radius.circular(25.0),
+          topRight: Radius.circular(25.0),
+        ),
         colorBehindNavBar: palette.primaryColor,
       ),
       itemAnimationProperties: ItemAnimationProperties(

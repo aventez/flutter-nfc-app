@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.nfc_mobile">
+    package="com.example.idrop">
    <application
-        android:label="nfc_mobile"
-        android:icon="@mipmap/launcher_icon">
+        android:label="idrop"
+        android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
