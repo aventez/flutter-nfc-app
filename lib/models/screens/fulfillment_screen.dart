@@ -27,10 +27,7 @@ class FulfillmentScreenModel extends ChangeNotifier {
       'job': jobFieldContent,
     });
     if (result != null) {
-      debugPrint('elo');
       global.refreshUser();
-    } else {
-      debugPrint('unexpected error');
     }
 
     requestInQueue = false;
