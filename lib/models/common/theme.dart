@@ -16,7 +16,7 @@ class ThemeModel extends ChangeNotifier {
   Future<void> init() async {
     sharedPreferences = await SharedPreferences.getInstance();
 
-    this.themeId = sharedPreferences.getInt('theme:themeId');
+    this.themeId = sharedPreferences.getInt('theme:themeId') ?? 1;
 
     refresh();
   }

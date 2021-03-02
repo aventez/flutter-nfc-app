@@ -1,6 +1,8 @@
 class UserSettingsInfo {
   String email;
-  Null job;
+  String job;
+  String name;
+  bool isFulfilled;
   Profile profile;
 
   UserSettingsInfo({this.email, this.job, this.profile});
@@ -8,6 +10,8 @@ class UserSettingsInfo {
   UserSettingsInfo.fromJson(Map<String, dynamic> json) {
     email = json['email'];
     job = json['job'];
+    name = json['name'];
+    isFulfilled = json['isFulfilled'];
     profile =
         json['profile'] != null ? new Profile.fromJson(json['profile']) : null;
   }
@@ -16,6 +20,9 @@ class UserSettingsInfo {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['email'] = this.email;
     data['job'] = this.job;
+    data['name'] = this.name;
+    data['isFulfilled'] = this.isFulfilled;
+
     if (this.profile != null) {
       data['profile'] = this.profile.toJson();
     }
@@ -24,23 +31,23 @@ class UserSettingsInfo {
 }
 
 class Profile {
-  Null phoneNumber;
-  Null instagramAccount;
-  Null twitterAccount;
-  Null facebookAccount;
-  Null linkedinAccount;
-  Null whatsAppNumber;
-  Null publicEmail;
-  Null youtubeAccount;
-  Null tiktokAccount;
-  Null spotifyAccount;
-  Null appleMusicAccount;
-  Null cashAppAccount;
-  Null venmoAccount;
-  Null paypalAccount;
-  Null twitchAccount;
-  Null snapchatName;
-  Null website;
+  String phoneNumber;
+  String instagramAccount;
+  String twitterAccount;
+  String facebookAccount;
+  String linkedinAccount;
+  String whatsAppNumber;
+  String publicEmail;
+  String youtubeAccount;
+  String tiktokAccount;
+  String spotifyAccount;
+  String appleMusicAccount;
+  String cashAppAccount;
+  String venmoAccount;
+  String paypalAccount;
+  String twitchAccount;
+  String snapchatName;
+  String website;
 
   Profile(
       {this.phoneNumber,

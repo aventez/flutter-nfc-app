@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:idrop/models/screens/fulfillment_screen.dart';
 import 'package:idrop/models/screens/login_screen.dart';
 import 'package:idrop/models/screens/nfc_screen.dart';
 import 'package:idrop/models/screens/profile_screen.dart';
 import 'package:idrop/models/screens/register_screen.dart';
 import 'package:idrop/models/screens/settings_screen.dart';
+import 'package:idrop/screens/fulfillment/fulfillment.dart';
 import 'package:idrop/screens/login/login.dart';
 import 'package:idrop/screens/nfc/nfc.dart';
 import 'package:idrop/screens/profile/profile.dart';
@@ -34,14 +35,14 @@ class ProviderConfig {
 
   ChangeNotifierProvider<NfcScreenModel> getNfcScreen() {
     return ChangeNotifierProvider<NfcScreenModel>(
-      create: (context) => NfcScreenModel(),
+      create: (context) => NfcScreenModel(context),
       child: NfcScreen(),
     );
   }
 
   ChangeNotifierProvider<SettingsScreenModel> getSettingsScreen() {
     return ChangeNotifierProvider<SettingsScreenModel>(
-      create: (context) => SettingsScreenModel(),
+      create: (context) => SettingsScreenModel(context),
       child: SettingsScreen(),
     );
   }
@@ -57,6 +58,13 @@ class ProviderConfig {
     return ChangeNotifierProvider<RegisterScreenModel>(
       create: (context) => RegisterScreenModel(),
       child: RegisterScreen(),
+    );
+  }
+
+  ChangeNotifierProvider<FulfillmentScreenModel> getFulfillmentScreen() {
+    return ChangeNotifierProvider<FulfillmentScreenModel>(
+      create: (context) => FulfillmentScreenModel(context),
+      child: FulfillmentScreen(),
     );
   }
 }

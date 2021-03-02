@@ -51,6 +51,10 @@ class Home extends StatelessWidget {
       return global.providerConfig.getLoginScreen();
     }
 
+    if (global.activeAccount.isFulfilled == false) {
+      return global.providerConfig.getFulfillmentScreen();
+    }
+
     return PersistentTabView(
       context,
       controller: global.controller,

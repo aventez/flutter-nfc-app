@@ -10,7 +10,7 @@ class RegisterPasswordField extends StatelessWidget {
     return TextFormField(
       obscureText: model.passwordFieldObscure,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      validator: ValidationBuilder().maxLength(16).minLength(5).build(),
+      validator: ValidationBuilder().maxLength(16).minLength(8).build(),
       onChanged: (value) => model.passwordFieldContent = value,
       decoration: InputDecoration(
         enabled: !model.requestInQueue,

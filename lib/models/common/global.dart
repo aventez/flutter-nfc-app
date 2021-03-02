@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:idrop/json/user_basic.dart';
+import 'package:idrop/json/user_settings.dart';
 import 'package:idrop/utils/api_service.dart';
 import 'package:idrop/utils/providers.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
@@ -14,7 +14,7 @@ class GlobalModel with ChangeNotifier {
   ProviderConfig providerConfig;
   ApiService apiService;
 
-  UserBasicInfo activeAccount;
+  UserSettingsInfo activeAccount;
   String jwtToken;
   /* Variables section end */
 
@@ -33,9 +33,14 @@ class GlobalModel with ChangeNotifier {
 
     apiService = ApiService(jwtToken);
     if (jwtToken != null) {
-      activeAccount = await apiService.getUserBasicInfo();
+      activeAccount = await apiService.getUserSettingsInfo();
     }
 
+    refresh();
+  }
+
+  void refreshUser() async {
+    activeAccount = await apiService.getUserSettingsInfo();
     refresh();
   }
 
@@ -46,8 +51,7 @@ class GlobalModel with ChangeNotifier {
     final storage = new FlutterSecureStorage();
     storage.write(key: 'auth:jwt', value: jwtToken);
 
-    activeAccount = await apiService.getUserBasicInfo();
-    refresh();
+    refreshUser();
   }
   /* Logic section end */
 }

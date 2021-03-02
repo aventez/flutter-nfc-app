@@ -7,7 +7,7 @@ class App extends StatelessWidget {
   Widget buildChild(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.grey.shade50,
+        scaffoldBackgroundColor: Colors.white,
         primaryColor: Colors.grey.shade200,
       ),
       home: Home(),
