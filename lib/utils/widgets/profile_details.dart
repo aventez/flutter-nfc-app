@@ -42,7 +42,7 @@ class ProfileDetails extends StatelessWidget {
           ),
           _buildHorizontalMargin(0.01),
           Text(
-            job,
+            job ?? '-',
             style: TextStyle(fontSize: 16.0, color: palette.textLightColor),
           ),
         ],

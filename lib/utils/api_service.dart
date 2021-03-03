@@ -40,6 +40,8 @@ class ApiService {
       final user = UserSettingsInfo.fromJson(json.decode(result.body));
       return user;
     } else {
+      //debugPrint(result.body.toString());
+
       return null;
     }
   }

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/models/common/theme.dart';
 import 'package:idrop/utils/scaffolds/base_scaffold.dart';
 import 'package:idrop/utils/widgets/app_header.dart';
-import 'package:provider/provider.dart';
 
 class CommonScaffold extends StatelessWidget {
   final Widget body;
+  final List<Widget> actions;
 
   CommonScaffold({
     @required this.body,
+    this.actions,
   });
 
   @override
@@ -22,6 +22,7 @@ class CommonScaffold extends StatelessWidget {
           Expanded(child: this.body),
         ],
       ),
+      actions: this.actions,
     );
   }
 }

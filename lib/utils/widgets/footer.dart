@@ -15,7 +15,7 @@ class Footer extends StatelessWidget {
         children: [
           BrandLogo(
             width: size.width * 0.2,
-            black: true,
+            black: false,
           ),
           SizedBox(height: size.height * 0.02),
           Row(

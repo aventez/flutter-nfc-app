@@ -20,22 +20,22 @@ class Home extends StatelessWidget {
       PersistentBottomNavBarItem(
         icon: Icon(Icons.person),
         title: "Profile",
-        activeColor: palette.secondaryColor,
-        activeColorAlternate: palette.primaryColor,
+        activeColor: palette.primaryColor,
+        activeColorAlternate: Colors.white.withOpacity(0.7),
         inactiveColor: Colors.grey.withOpacity(0.35),
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.nfc_outlined),
         title: "NFC Scan",
-        activeColor: palette.secondaryColor,
-        activeColorAlternate: palette.primaryColor,
+        activeColor: palette.primaryColor,
+        activeColorAlternate: Colors.white.withOpacity(0.7),
         inactiveColor: Colors.grey.withOpacity(0.35),
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.settings_outlined),
         title: "Settings",
-        activeColor: palette.secondaryColor,
-        activeColorAlternate: palette.primaryColor,
+        activeColor: palette.primaryColor,
+        activeColorAlternate: Colors.white.withOpacity(0.7),
         inactiveColor: Colors.grey.withOpacity(0.35),
       ),
     ];

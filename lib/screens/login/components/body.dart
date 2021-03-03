@@ -25,8 +25,10 @@ class Body extends StatelessWidget {
               ),
             ),
             SizedBox(height: size.height * 0.05),
-            Text('Sign in',
-                style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold)),
+            Text(
+              'Sign in',
+              style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
+            ),
             SizedBox(height: size.height * 0.03),
             LoginForm(),
             SizedBox(height: size.height * 0.04),

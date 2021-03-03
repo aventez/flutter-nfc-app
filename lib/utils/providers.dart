@@ -1,9 +1,11 @@
+import 'package:idrop/models/screens/edit_profile_screen.dart';
 import 'package:idrop/models/screens/fulfillment_screen.dart';
 import 'package:idrop/models/screens/login_screen.dart';
 import 'package:idrop/models/screens/nfc_screen.dart';
 import 'package:idrop/models/screens/profile_screen.dart';
 import 'package:idrop/models/screens/register_screen.dart';
 import 'package:idrop/models/screens/settings_screen.dart';
+import 'package:idrop/screens/edit_profile/edit_profile.dart';
 import 'package:idrop/screens/fulfillment/fulfillment.dart';
 import 'package:idrop/screens/login/login.dart';
 import 'package:idrop/screens/nfc/nfc.dart';
@@ -28,7 +30,7 @@ class ProviderConfig {
   /* Providers */
   ChangeNotifierProvider<ProfileScreenModel> getProfileScreen() {
     return ChangeNotifierProvider<ProfileScreenModel>(
-      create: (context) => ProfileScreenModel(),
+      create: (context) => ProfileScreenModel(context),
       child: ProfileScreen(),
     );
   }
@@ -65,6 +67,13 @@ class ProviderConfig {
     return ChangeNotifierProvider<FulfillmentScreenModel>(
       create: (context) => FulfillmentScreenModel(context),
       child: FulfillmentScreen(),
+    );
+  }
+
+  ChangeNotifierProvider<EditProfileScreenModel> getEditProfileScreen() {
+    return ChangeNotifierProvider<EditProfileScreenModel>(
+      create: (context) => EditProfileScreenModel(context),
+      child: EditProfileScreen(),
     );
   }
 }

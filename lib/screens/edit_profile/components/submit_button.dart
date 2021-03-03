@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/models/screens/fulfillment_screen.dart';
+import 'package:idrop/models/screens/edit_profile_screen.dart';
 import 'package:provider/provider.dart';
 
-class FulfillmentSubmitButton extends StatelessWidget {
-  const FulfillmentSubmitButton({
+class EditProfileSubmitButton extends StatelessWidget {
+  const EditProfileSubmitButton({
     @required this.formKey,
   });
 
@@ -12,7 +12,7 @@ class FulfillmentSubmitButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final model = Provider.of<FulfillmentScreenModel>(context);
+    final model = Provider.of<EditProfileScreenModel>(context);
     return ElevatedButton(
       onPressed: () {
         if (formKey.currentState.validate()) {
@@ -37,7 +37,7 @@ class FulfillmentSubmitButton extends StatelessWidget {
         ),
         elevation: MaterialStateProperty.all<double>(0),
       ),
-      child: Text('Fill profile'.toUpperCase()),
+      child: Text('Edit profile'.toUpperCase()),
     );
   }
 }

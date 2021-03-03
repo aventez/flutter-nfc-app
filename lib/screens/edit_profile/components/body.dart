@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/screens/fulfillment/components/form.dart';
+import 'package:idrop/screens/edit_profile/components/form.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -12,21 +12,17 @@ class Body extends StatelessWidget {
         SizedBox(height: size.height * 0.12),
         Center(
           child: Image.asset(
-            'assets/fulfillment_artwork.png',
+            'assets/edit_profile_artwork.png',
             width: size.width * 0.5,
           ),
         ),
         SizedBox(height: size.height * 0.05),
         Text(
-          'Just a few seconds...',
+          'Edit your profile',
           style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: size.height * 0.01),
-        Text(
-          'Hey! Only one simple step separates you from full access to the application. Just you have to tell us a bit about you. Let\'s go!',
-        ),
         SizedBox(height: size.height * 0.04),
-        FulfillmentForm(),
+        EditProfileForm(),
       ],
     );
   }

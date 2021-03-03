@@ -17,5 +17,13 @@ class NfcScreenModel extends ChangeNotifier {
   }
 
   void refresh() => notifyListeners();
+
+  void writeNfc() async {
+    NDEFMessage newMessage = NDEFMessage.withRecords([
+      NDEFRecord.type("text/plain", "content"),
+    ]);
+
+    await NFC.writeNDEF(newMessage, once: true).first;
+  }
   /* Logic section end */
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:idrop/models/screens/settings_screen.dart';
-import 'package:idrop/screens/settings/components/footer.dart';
+import 'package:idrop/utils/widgets/footer.dart';
 import 'package:idrop/screens/settings/components/theme_choose.dart';
 import 'package:idrop/utils/widgets/section_header.dart';
 import 'package:provider/provider.dart';

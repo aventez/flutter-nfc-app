@@ -13,36 +13,31 @@ class AppHeader extends StatelessWidget {
     final palette = theme.getPalette();
 
     return Container(
-      height: size.height * 0.4,
+      height: size.height * 0.37,
       width: size.width,
       child: Stack(
         children: [
           ClipPath(
             clipper: SemicircleClipper(),
             child: Container(
-              height: size.height * 0.28,
+              height: size.height * 0.26,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/header_texture.png'),
                   fit: BoxFit.cover,
                   colorFilter: new ColorFilter.mode(
-                      Colors.white.withOpacity(0.2), BlendMode.dstATop),
+                    Colors.white.withOpacity(0.2),
+                    BlendMode.dstATop,
+                  ),
                 ),
-                gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  colors: [
-                    palette.secondaryColor.withOpacity(0.5),
-                    Colors.white,
-                  ],
-                ),
+                color: palette.primaryColor,
               ),
             ),
           ),
           Center(
             child: Column(
               children: <Widget>[
-                SizedBox(height: size.height * 0.11),
+                SizedBox(height: size.height * 0.08),
                 ProfileAvatar(
                   width: size.height * 0.2,
                   height: size.height * 0.2,
