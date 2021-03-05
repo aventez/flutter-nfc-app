@@ -37,7 +37,7 @@ class FulfillmentSubmitButton extends StatelessWidget {
         ),
         elevation: MaterialStateProperty.all<double>(0),
       ),
-      child: Text('Fill profile'.toUpperCase()),
+      child: Text('Create Profile'),
     );
   }
 }

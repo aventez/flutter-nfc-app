@@ -90,8 +90,6 @@ class Body extends StatelessWidget {
                 brand: 'website',
                 name: profile.website,
               ),
-              SizedBox(height: size.height * 0.03),
-              Footer(),
             ],
           ),
         ),

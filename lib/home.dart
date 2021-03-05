@@ -12,6 +12,7 @@ class Home extends StatelessWidget {
       global.providerConfig.getProfileScreen(),
       global.providerConfig.getNfcScreen(),
       global.providerConfig.getSettingsScreen(),
+      global.providerConfig.getSettingsScreen(),
     ];
   }
 
@@ -21,21 +22,28 @@ class Home extends StatelessWidget {
         icon: Icon(Icons.person),
         title: "Profile",
         activeColor: palette.primaryColor,
-        activeColorAlternate: Colors.white.withOpacity(0.7),
+        activeColorAlternate: palette.primaryColor,
         inactiveColor: Colors.grey.withOpacity(0.35),
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.nfc_outlined),
         title: "NFC Scan",
         activeColor: palette.primaryColor,
-        activeColorAlternate: Colors.white.withOpacity(0.7),
+        activeColorAlternate: palette.primaryColor,
         inactiveColor: Colors.grey.withOpacity(0.35),
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.settings_outlined),
         title: "Settings",
         activeColor: palette.primaryColor,
-        activeColorAlternate: Colors.white.withOpacity(0.7),
+        activeColorAlternate: palette.primaryColor,
+        inactiveColor: Colors.grey.withOpacity(0.35),
+      ),
+      PersistentBottomNavBarItem(
+        icon: Icon(Icons.more_horiz),
+        title: "More",
+        activeColor: palette.primaryColor,
+        activeColorAlternate: palette.primaryColor,
         inactiveColor: Colors.grey.withOpacity(0.35),
       ),
     ];
@@ -78,7 +86,7 @@ class Home extends StatelessWidget {
         curve: Curves.ease,
         duration: Duration(milliseconds: 200),
       ),
-      navBarStyle: NavBarStyle.style7,
+      navBarStyle: NavBarStyle.style3,
     );
   }
 }

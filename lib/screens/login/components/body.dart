@@ -3,6 +3,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:idrop/models/common/global.dart';
 import 'package:idrop/models/screens/login_screen.dart';
 import 'package:idrop/screens/login/components/form.dart';
+import 'package:idrop/utils/widgets/brand_logo.dart';
+import 'package:idrop/utils/widgets/footer.dart';
 import 'package:provider/provider.dart';
 
 class Body extends StatelessWidget {
@@ -17,11 +19,11 @@ class Body extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           padding: EdgeInsets.all(size.width * 0.1),
           children: [
-            SizedBox(height: size.height * 0.12),
+            SizedBox(height: size.height * 0.07),
             Center(
               child: Image.asset(
                 'assets/login_artwork.png',
-                width: size.width * 0.5,
+                width: size.width * 0.43,
               ),
             ),
             SizedBox(height: size.height * 0.05),
@@ -31,7 +33,7 @@ class Body extends StatelessWidget {
             ),
             SizedBox(height: size.height * 0.03),
             LoginForm(),
-            SizedBox(height: size.height * 0.04),
+            SizedBox(height: size.height * 0.03),
             Center(
               child: GestureDetector(
                 onTap: () {
@@ -57,6 +59,13 @@ class Body extends StatelessWidget {
                     ],
                   ),
                 ),
+              ),
+            ),
+            SizedBox(height: size.height * 0.06),
+            Center(
+              child: BrandLogo(
+                width: size.width * 0.35,
+                black: false,
               ),
             ),
           ],

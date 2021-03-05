@@ -25,7 +25,7 @@ class LoginFormState extends State<LoginForm> {
           LoginPasswordField(),
           SizedBox(height: size.height * 0.01),
           LoginRecoverPassword(),
-          SizedBox(height: size.height * 0.04),
+          SizedBox(height: size.height * 0.03),
           LoginSubmitButton(formKey: formKey),
         ],
       ),

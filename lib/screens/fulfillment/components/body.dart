@@ -23,7 +23,7 @@ class Body extends StatelessWidget {
         ),
         SizedBox(height: size.height * 0.01),
         Text(
-          'Hey! Only one simple step separates you from full access to the application. Just you have to tell us a bit about you. Let\'s go!',
+          'Hey! One more step to create your IDrop profile, tell us more about you. Let\'s go!',
         ),
         SizedBox(height: size.height * 0.04),
         FulfillmentForm(),
