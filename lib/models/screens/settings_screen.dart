@@ -7,12 +7,21 @@ class SettingsScreenModel extends ChangeNotifier {
 
   SettingsScreenModel(this.context);
 
+  /* Variables section */
+  String oldPasswordFieldContent;
+  String newPasswordFieldContent;
+  /* Variables section end */
+
   /* Logic section */
   void refresh() => notifyListeners();
 
   void handleLogout() {
     final global = Provider.of<GlobalModel>(context, listen: false);
     global.updateJwt(null);
+  }
+
+  void submitChangePasswordForm() {
+    final global = Provider.of<GlobalModel>(context, listen: false);
   }
   /* Logic section end */
 }

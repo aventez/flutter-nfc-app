@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
 class ApiStrategy {
-  static final String apiUrl = "https://backend-2-kmri8.ondigitalocean.app";
+  static final String apiUrl = "https://backend-2-kmri8.ondigitalocean.app/api";
 
   final String token;
 

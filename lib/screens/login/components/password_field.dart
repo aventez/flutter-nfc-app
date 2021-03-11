@@ -10,7 +10,7 @@ class LoginPasswordField extends StatelessWidget {
     return TextFormField(
       obscureText: model.passwordFieldObsure,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      validator: ValidationBuilder().maxLength(16).minLength(8).build(),
+      validator: ValidationBuilder().maxLength(64).minLength(8).build(),
       onChanged: (value) => model.passwordFieldContent = value,
       decoration: InputDecoration(
         enabled: !model.requestInQueue,

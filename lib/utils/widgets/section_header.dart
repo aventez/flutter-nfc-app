@@ -16,26 +16,29 @@ class SectionHeader extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final theme = Provider.of<ThemeModel>(context);
     final palette = theme.getPalette();
-    return Column(
-      children: [
-        Container(
-          padding: EdgeInsets.only(bottom: 25.0),
-          width: size.width,
-          decoration: BoxDecoration(
-            border: Border(
-              bottom: BorderSide(width: 1.0, color: palette.secondaryColor),
+    return Container(
+      margin: EdgeInsets.only(bottom: 5.0),
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.only(bottom: 25.0),
+            width: size.width,
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(width: 1.0, color: palette.secondaryColor),
+              ),
+            ),
+            child: this.title,
+          ),
+          Padding(
+            padding: EdgeInsets.all(12.0),
+            child: Container(
+              width: size.width,
+              child: this.body,
             ),
           ),
-          child: this.title,
-        ),
-        Padding(
-          padding: EdgeInsets.all(12.0),
-          child: Container(
-            width: size.width,
-            child: this.body,
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

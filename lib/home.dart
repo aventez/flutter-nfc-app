@@ -12,7 +12,7 @@ class Home extends StatelessWidget {
       global.providerConfig.getProfileScreen(),
       global.providerConfig.getNfcScreen(),
       global.providerConfig.getSettingsScreen(),
-      global.providerConfig.getSettingsScreen(),
+      global.providerConfig.getMoreScreen(),
     ];
   }
 
@@ -33,7 +33,7 @@ class Home extends StatelessWidget {
         inactiveColor: Colors.grey.withOpacity(0.35),
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.settings_outlined),
+        icon: Icon(Icons.settings),
         title: "Settings",
         activeColor: palette.primaryColor,
         activeColorAlternate: palette.primaryColor,

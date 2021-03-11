@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
-import 'package:idrop/models/screens/register_screen.dart';
+import 'package:idrop/models/screens/settings_screen.dart';
 import 'package:provider/provider.dart';
 
-class RegisterPasswordField extends StatelessWidget {
+class NewPasswordField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final model = Provider.of<RegisterScreenModel>(context);
+    final model = Provider.of<SettingsScreenModel>(context);
     return TextFormField(
-      obscureText: model.passwordFieldObscure,
+      obscureText: true,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: ValidationBuilder().maxLength(64).minLength(8).build(),
-      onChanged: (value) => model.passwordFieldContent = value,
+      onChanged: (value) => model.newPasswordFieldContent = value,
       decoration: InputDecoration(
-        enabled: !model.requestInQueue,
-        labelText: 'Password',
+        labelText: 'New password',
         prefixIcon: Icon(Icons.lock_outline),
-        suffixIcon: GestureDetector(
-          child: model.passwordFieldObscure
-              ? Icon(Icons.remove_red_eye)
-              : Icon(Icons.remove_red_eye_outlined),
-          onTap: () => model.togglePasswordObscure(),
+        contentPadding: EdgeInsets.symmetric(
+          vertical: 10.0,
+          horizontal: 20.0,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(

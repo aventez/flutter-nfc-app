@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:idrop/models/screens/settings_screen.dart';
+import 'package:idrop/screens/login/components/form.dart';
+import 'package:idrop/screens/settings/components/change_password/form.dart';
 import 'package:idrop/utils/widgets/footer.dart';
 import 'package:idrop/screens/settings/components/theme_choose.dart';
 import 'package:idrop/utils/widgets/section_header.dart';
@@ -21,14 +23,15 @@ class Body extends StatelessWidget {
             ThemeChoose(),
             SectionHeader(
               title: Text(
-                'Authentication',
+                'Change password',
                 style: TextStyle(fontSize: 19.0, fontWeight: FontWeight.bold),
               ),
-              body: TextButton(
-                child: Text('Sign-out'),
-                onPressed: () => model.handleLogout(),
+              body: Container(
+                margin: EdgeInsets.only(top: 10.0),
+                child: ChangePasswordForm(),
               ),
             ),
+            SizedBox(height: size.height * 0.02),
             Footer(),
           ],
         ),

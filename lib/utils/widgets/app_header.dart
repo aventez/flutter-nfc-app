@@ -13,7 +13,7 @@ class AppHeader extends StatelessWidget {
     final palette = theme.getPalette();
 
     return Container(
-      height: size.height * 0.37,
+      height: size.height * 0.39,
       width: size.width,
       child: Stack(
         children: [

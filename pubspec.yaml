@@ -23,6 +23,7 @@ dependencies:
   pull_to_refresh: <=1.6.3
   after_init: ^0.1.2
   adaptive_dialog: ^0.9.4
+  url_launcher: ^6.0.2
 
 dev_dependencies:
   flutter_test:
