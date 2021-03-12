@@ -56,4 +56,8 @@ class ApiStrategy {
     final response = http.Response.fromStream(await request.send());
     return response;
   }
+
+  Uri getApiUri(String path) {
+    return Uri.parse('$apiUrl/$path');
+  }
 }

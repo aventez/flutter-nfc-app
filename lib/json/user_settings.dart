@@ -1,4 +1,5 @@
 class UserSettingsInfo {
+  String id;
   String email;
   String job;
   String name;
@@ -6,9 +7,8 @@ class UserSettingsInfo {
   bool isFulfilled;
   Profile profile;
 
-  UserSettingsInfo({this.email, this.job, this.profile});
-
   UserSettingsInfo.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     email = json['email'];
     job = json['job'];
     name = json['name'];
@@ -20,6 +20,7 @@ class UserSettingsInfo {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
     data['email'] = this.email;
     data['job'] = this.job;
     data['name'] = this.name;

@@ -34,9 +34,33 @@ class Body extends StatelessWidget {
                   ),
                   SizedBox(height: size.height * 0.01),
                   Text(
-                    'Move the top of your device close to the tag.',
+                    'In order to activate IDrop tag tap the button.',
                     style: TextStyle(),
                     textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: size.height * 0.04),
+                  ElevatedButton(
+                    onPressed: () async {
+                      await model.writeNfc();
+                    },
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all<OutlinedBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(size.width),
+                        ),
+                      ),
+                      minimumSize: MaterialStateProperty.all<Size>(
+                        Size(size.width / 3, size.height * 0.05),
+                      ),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        palette.primaryColor,
+                      ),
+                      textStyle: MaterialStateProperty.all<TextStyle>(
+                        TextStyle(fontSize: 15.0),
+                      ),
+                      elevation: MaterialStateProperty.all<double>(0),
+                    ),
+                    child: Text('Activate'.toUpperCase()),
                   ),
                 ],
               ),
