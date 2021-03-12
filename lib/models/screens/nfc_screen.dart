@@ -28,8 +28,6 @@ class NfcScreenModel extends ChangeNotifier {
       'user/profile/$accountId',
     );
 
-    debugPrint(path.toString());
-
     NDEFMessage newMessage = NDEFMessage.withRecords([
       NDEFRecord.uri(path),
     ]);

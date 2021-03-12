@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:idrop/json/user_basic.dart';
 import 'package:idrop/json/user_settings.dart';
 import 'package:idrop/utils/api_strategy.dart';
@@ -36,7 +35,6 @@ class ApiService {
   Future<UserSettingsInfo> updateUserSettings(Map<String, dynamic> data) async {
     final result = await this.apiStrategy.post('user/settings', data);
     if (result.statusCode == 201) {
-      debugPrint(result.body);
       final user = UserSettingsInfo.fromJson(json.decode(result.body));
       return user;
     } else {
