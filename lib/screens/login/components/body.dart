@@ -4,7 +4,6 @@ import 'package:idrop/models/common/global.dart';
 import 'package:idrop/models/screens/login_screen.dart';
 import 'package:idrop/screens/login/components/form.dart';
 import 'package:idrop/utils/widgets/brand_logo.dart';
-import 'package:idrop/utils/widgets/footer.dart';
 import 'package:provider/provider.dart';
 
 class Body extends StatelessWidget {

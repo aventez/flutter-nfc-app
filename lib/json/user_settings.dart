@@ -2,6 +2,7 @@ class UserSettingsInfo {
   String email;
   String job;
   String name;
+  String avatarURL;
   bool isFulfilled;
   Profile profile;
 
@@ -12,6 +13,7 @@ class UserSettingsInfo {
     job = json['job'];
     name = json['name'];
     isFulfilled = json['isFulfilled'];
+    avatarURL = json['avatarURL'];
     profile =
         json['profile'] != null ? new Profile.fromJson(json['profile']) : null;
   }
@@ -22,6 +24,7 @@ class UserSettingsInfo {
     data['job'] = this.job;
     data['name'] = this.name;
     data['isFulfilled'] = this.isFulfilled;
+    data['avatarURL'] = this.avatarURL;
 
     if (this.profile != null) {
       data['profile'] = this.profile.toJson();

@@ -27,61 +27,58 @@ class ProfileLink extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         margin: EdgeInsets.only(bottom: 10.0),
-        child: Stack(
-          children: [
-            Container(
-              width: rowWidth,
-              height: rowHeight,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                color: palette.primaryColor.withOpacity(opacity),
+        child: Container(
+          width: rowWidth * 0.9,
+          height: rowHeight,
+          margin: EdgeInsets.only(left: rowWidth * 0.013),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.25),
+                blurRadius: 10.0,
               ),
-            ),
-            Container(
-              width: rowWidth,
-              height: rowHeight,
-              margin: EdgeInsets.only(left: rowWidth * 0.013),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                color: Colors.grey.shade100,
-              ),
-              child: Opacity(
-                opacity: opacity,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(width: rowWidth * 0.05),
-                    Image.asset(
-                      'assets/icons/$brand.png',
-                      width: rowWidth * 0.09,
-                    ),
-                    SizedBox(width: rowWidth * 0.05),
-                    Flexible(
-                      flex: 1,
-                      fit: FlexFit.tight,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            brandKeys[this.brand],
-                            style: TextStyle(fontSize: 20.0),
-                          ),
-                          ProfileLinkStateText(name: this.name),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        alignment: Alignment.centerRight,
-                        child: ProfileLinksIcons(name: name, brand: brand),
-                      ),
-                    ),
-                  ],
+            ],
+          ),
+          child: Opacity(
+            opacity: opacity,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(width: rowWidth * 0.05),
+                Image.asset(
+                  'assets/icons/$brand.png',
+                  width: rowWidth * 0.09,
                 ),
-              ),
+                SizedBox(width: rowWidth * 0.05),
+                Flexible(
+                  flex: 1,
+                  fit: FlexFit.tight,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        brandKeys[this.brand],
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          color: palette.primaryColor,
+                        ),
+                      ),
+                      ProfileLinkStateText(name: this.name),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.centerRight,
+                    child: ProfileLinksIcons(name: name, brand: brand),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

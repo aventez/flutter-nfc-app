@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:idrop/models/common/global.dart';
+import 'package:provider/provider.dart';
 
 class MoreScreenModel extends ChangeNotifier {
   BuildContext context;
@@ -7,5 +9,10 @@ class MoreScreenModel extends ChangeNotifier {
 
   /* Logic section */
   void refresh() => notifyListeners();
+
+  void handleLogout() {
+    final global = Provider.of<GlobalModel>(context, listen: false);
+    global.updateJwt(null);
+  }
   /* Logic section end */
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:idrop/models/common/global.dart';
+import 'package:idrop/utils/alerts.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreenModel extends ChangeNotifier {
@@ -34,7 +35,9 @@ class LoginScreenModel extends ChangeNotifier {
     );
     if (result != null) {
       global.updateJwt(result);
-    } else {}
+    } else {
+      showOkAlert(context, 'Wrong credentials provided');
+    }
 
     requestInQueue = false;
     refresh();

@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:idrop/json/user_basic.dart';
 import 'package:idrop/json/user_settings.dart';
 import 'package:idrop/utils/api_strategy.dart';
@@ -37,12 +36,41 @@ class ApiService {
   Future<UserSettingsInfo> updateUserSettings(Map<String, dynamic> data) async {
     final result = await this.apiStrategy.post('user/settings', data);
     if (result.statusCode == 201) {
+      debugPrint(result.body);
       final user = UserSettingsInfo.fromJson(json.decode(result.body));
       return user;
     } else {
-      //debugPrint(result.body.toString());
-
       return null;
+    }
+  }
+
+  Future<bool> updateAvatar(path) async {
+    final result = await this.apiStrategy.uploadFile('user/avatar', path);
+    if (result.statusCode == 201) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> deleteAvatar() async {
+    final result = await this.apiStrategy.delete('user/avatar');
+    if (result.statusCode == 200) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> changePassword(String oldPassword, String newPassword) async {
+    final result = await this.apiStrategy.post('auth/change-password', {
+      'oldPassword': oldPassword,
+      'newPassword': newPassword,
+    });
+    if (result.statusCode == 201) {
+      return true;
+    } else {
+      return false;
     }
   }
 
@@ -54,13 +82,6 @@ class ApiService {
     if (result.statusCode == 201) {
       return result.body;
     } else {
-      await Fluttertoast.showToast(
-        msg: "Wrong credentials provided",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.TOP,
-        fontSize: 16.0,
-      );
-
       return null;
     }
   }
@@ -73,13 +94,6 @@ class ApiService {
     if (result.statusCode == 201) {
       return result.body;
     } else {
-      await Fluttertoast.showToast(
-        msg: "Account with that email already exists",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.TOP,
-        fontSize: 16.0,
-      );
-
       return null;
     }
   }

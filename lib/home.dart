@@ -23,28 +23,28 @@ class Home extends StatelessWidget {
         title: "Profile",
         activeColor: palette.primaryColor,
         activeColorAlternate: palette.primaryColor,
-        inactiveColor: Colors.grey.withOpacity(0.35),
+        inactiveColor: Colors.black.withOpacity(0.35),
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.nfc_outlined),
         title: "NFC Scan",
         activeColor: palette.primaryColor,
         activeColorAlternate: palette.primaryColor,
-        inactiveColor: Colors.grey.withOpacity(0.35),
+        inactiveColor: Colors.black.withOpacity(0.35),
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.settings),
         title: "Settings",
         activeColor: palette.primaryColor,
         activeColorAlternate: palette.primaryColor,
-        inactiveColor: Colors.grey.withOpacity(0.35),
+        inactiveColor: Colors.black.withOpacity(0.35),
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.more_horiz),
         title: "More",
         activeColor: palette.primaryColor,
         activeColorAlternate: palette.primaryColor,
-        inactiveColor: Colors.grey.withOpacity(0.35),
+        inactiveColor: Colors.black.withOpacity(0.35),
       ),
     ];
   }
@@ -68,14 +68,16 @@ class Home extends StatelessWidget {
       controller: global.controller,
       screens: _buildScreens(context),
       items: _buildNavigationItems(palette),
-      backgroundColor: Colors.grey.shade200,
+      backgroundColor: Colors.white,
       resizeToAvoidBottomInset: true,
       decoration: NavBarDecoration(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.0),
           topRight: Radius.circular(25.0),
         ),
-        colorBehindNavBar: palette.primaryColor,
+        boxShadow: [
+          BoxShadow(color: Colors.black.withOpacity(0.25), blurRadius: 15.0),
+        ],
       ),
       itemAnimationProperties: ItemAnimationProperties(
         duration: Duration(milliseconds: 200),
@@ -86,7 +88,7 @@ class Home extends StatelessWidget {
         curve: Curves.ease,
         duration: Duration(milliseconds: 200),
       ),
-      navBarStyle: NavBarStyle.style3,
+      navBarStyle: NavBarStyle.style12,
     );
   }
 }

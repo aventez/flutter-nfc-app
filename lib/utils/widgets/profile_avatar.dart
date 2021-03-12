@@ -4,11 +4,13 @@ class ProfileAvatar extends StatelessWidget {
   final double width;
   final double height;
   final double borderSize;
+  final String avatarUrl;
 
   const ProfileAvatar({
     @required this.width,
     @required this.height,
     this.borderSize = 7,
+    this.avatarUrl,
   });
 
   @override
@@ -24,7 +26,9 @@ class ProfileAvatar extends StatelessWidget {
         ),
         image: DecorationImage(
           fit: BoxFit.cover,
-          image: AssetImage("assets/avatar-placeholder.png"),
+          image: this.avatarUrl != null
+              ? NetworkImage(this.avatarUrl)
+              : AssetImage("assets/avatar-placeholder.png"),
         ),
       ),
     );

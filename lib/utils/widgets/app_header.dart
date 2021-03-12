@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:idrop/models/common/global.dart';
 import 'package:idrop/models/common/theme.dart';
 import 'package:idrop/utils/clippers/semicircle_clipper.dart';
 import 'package:idrop/utils/widgets/profile_avatar.dart';
@@ -9,6 +10,7 @@ class AppHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final global = Provider.of<GlobalModel>(context);
     final theme = Provider.of<ThemeModel>(context);
     final palette = theme.getPalette();
 
@@ -41,6 +43,7 @@ class AppHeader extends StatelessWidget {
                 ProfileAvatar(
                   width: size.height * 0.2,
                   height: size.height * 0.2,
+                  avatarUrl: global.activeAccount.avatarURL,
                 ),
                 ProfileDetails(),
               ],

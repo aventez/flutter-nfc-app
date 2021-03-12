@@ -25,7 +25,6 @@ class ChangePasswordSubmitButton extends StatelessWidget {
       style: ButtonStyle(
         shape: MaterialStateProperty.all<OutlinedBorder>(
           RoundedRectangleBorder(
-            side: BorderSide(color: Colors.red),
             borderRadius: BorderRadius.circular(size.width),
           ),
         ),

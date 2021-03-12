@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:idrop/models/common/global.dart';
+import 'package:idrop/utils/alerts.dart';
 import 'package:provider/provider.dart';
 
 class RegisterScreenModel extends ChangeNotifier {
@@ -39,7 +40,9 @@ class RegisterScreenModel extends ChangeNotifier {
     if (result != null) {
       global.updateJwt(result);
       Navigator.of(context).pop();
-    } else {}
+    } else {
+      showOkAlert(context, 'Account with that email already exists');
+    }
 
     requestInQueue = false;
     refresh();
