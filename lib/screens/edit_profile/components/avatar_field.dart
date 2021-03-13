@@ -16,8 +16,7 @@ class AvatarField extends StatelessWidget {
         GestureDetector(
           onTap: () => model.handleChangeAvatar(),
           child: ProfileAvatar(
-            width: size.height * 0.15,
-            height: size.height * 0.15,
+            radius: size.height * 0.075,
             avatarUrl: global.activeAccount.avatarURL,
             borderSize: 0,
           ),

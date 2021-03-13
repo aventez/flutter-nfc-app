@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:idrop/app.dart';
 import 'package:idrop/models/common/global.dart';
 import 'package:idrop/models/common/theme.dart';
@@ -14,6 +15,10 @@ Future<void> main() async {
     globalModel.init(),
     themeModel.init(),
   ]);
+
+  SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitUp],
+  );
 
   runApp(MultiProvider(
     providers: [

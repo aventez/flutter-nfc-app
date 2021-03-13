@@ -8,6 +8,9 @@ class LoginPasswordField extends StatelessWidget {
   Widget build(BuildContext context) {
     final model = Provider.of<LoginScreenModel>(context);
     return TextFormField(
+      autocorrect: false,
+      enableSuggestions: false,
+      keyboardType: TextInputType.visiblePassword,
       obscureText: model.passwordFieldObsure,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: ValidationBuilder().maxLength(64).minLength(8).build(),

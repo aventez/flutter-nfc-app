@@ -7,6 +7,9 @@ class RegisterRepeatPasswordField extends StatelessWidget {
   Widget build(BuildContext context) {
     final model = Provider.of<RegisterScreenModel>(context);
     return TextFormField(
+      autocorrect: false,
+      enableSuggestions: false,
+      keyboardType: TextInputType.visiblePassword,
       obscureText: model.repeatPasswordFieldObscure,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: (value) => value != model.passwordFieldContent

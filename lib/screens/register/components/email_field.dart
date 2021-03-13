@@ -8,6 +8,9 @@ class RegisterEmailField extends StatelessWidget {
   Widget build(BuildContext context) {
     final model = Provider.of<RegisterScreenModel>(context);
     return TextFormField(
+      autocorrect: false,
+      enableSuggestions: false,
+      keyboardType: TextInputType.emailAddress,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: ValidationBuilder().email().maxLength(32).build(),
       onChanged: (value) => model.emailFieldContent = value,

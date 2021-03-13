@@ -41,8 +41,7 @@ class AppHeader extends StatelessWidget {
               children: <Widget>[
                 SizedBox(height: size.height * 0.08),
                 ProfileAvatar(
-                  width: size.height * 0.2,
-                  height: size.height * 0.2,
+                  radius: size.height * 0.1,
                   avatarUrl: global.activeAccount.avatarURL,
                 ),
                 ProfileDetails(),

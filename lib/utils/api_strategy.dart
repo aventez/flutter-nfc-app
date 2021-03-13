@@ -5,7 +5,7 @@ import 'package:http/http.dart';
 import 'package:http_parser/http_parser.dart';
 
 class ApiStrategy {
-  static final String apiUrl = "https://backend-2-kmri8.ondigitalocean.app/api";
+  static final String apiUrl = "https://app.idropsocial.com/api";
 
   final String token;
 
