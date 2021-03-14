@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:idrop/json/user_basic.dart';
 import 'package:idrop/json/user_settings.dart';
 import 'package:idrop/utils/api_strategy.dart';
@@ -54,6 +55,18 @@ class ApiService {
   Future<bool> deleteAvatar() async {
     final result = await this.apiStrategy.delete('user/avatar');
     if (result.statusCode == 200) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> resetPassword(String email) async {
+    final result = await this.apiStrategy.post(
+      'auth/password-recovery',
+      {'email': email},
+    );
+    if (result.statusCode == 201) {
       return true;
     } else {
       return false;
