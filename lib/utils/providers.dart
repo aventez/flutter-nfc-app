@@ -1,16 +1,20 @@
 import 'package:idrop/models/screens/edit_profile_screen.dart';
 import 'package:idrop/models/screens/fulfillment_screen.dart';
+import 'package:idrop/models/screens/loading_screen.dart';
 import 'package:idrop/models/screens/login_screen.dart';
 import 'package:idrop/models/screens/more_screen.dart';
 import 'package:idrop/models/screens/nfc_screen.dart';
+import 'package:idrop/models/screens/offline_screen.dart';
 import 'package:idrop/models/screens/profile_screen.dart';
 import 'package:idrop/models/screens/register_screen.dart';
 import 'package:idrop/models/screens/settings_screen.dart';
 import 'package:idrop/screens/edit_profile/edit_profile.dart';
 import 'package:idrop/screens/fulfillment/fulfillment.dart';
+import 'package:idrop/screens/loading/loading.dart';
 import 'package:idrop/screens/login/login.dart';
 import 'package:idrop/screens/more/more.dart';
 import 'package:idrop/screens/nfc/nfc.dart';
+import 'package:idrop/screens/offline/offline.dart';
 import 'package:idrop/screens/profile/profile.dart';
 import 'package:idrop/screens/register/register.dart';
 import 'package:idrop/screens/settings/settings.dart';
@@ -83,6 +87,20 @@ class ProviderConfig {
     return ChangeNotifierProvider<EditProfileScreenModel>(
       create: (context) => EditProfileScreenModel(context),
       child: EditProfileScreen(),
+    );
+  }
+
+  ChangeNotifierProvider<LoadingScreenModel> getLoadingScreen() {
+    return ChangeNotifierProvider<LoadingScreenModel>(
+      create: (context) => LoadingScreenModel(context),
+      child: LoadingScreen(),
+    );
+  }
+
+  ChangeNotifierProvider<OfflineScreenModel> getOfflineScreen() {
+    return ChangeNotifierProvider<OfflineScreenModel>(
+      create: (context) => OfflineScreenModel(context),
+      child: OfflineScreen(),
     );
   }
 }

@@ -25,9 +25,9 @@ class Body extends StatelessWidget {
             SizedBox(height: size.height * 0.02),
             TabItem(
               imagePath: 'assets/buy_artwork.png',
-              title: 'Buy IDrop Tag',
+              title: 'Buy your IDrop',
               description:
-                  'Did you consider buy IDrop tag? Click this button to browse our products. You won\'t be sorry!',
+                  'Click here to shop your IDrop. See our new collections, new colors and new styles! You won’t regret it.',
               onTap: () async {
                 if (await canLaunch(shopUrl)) {
                   await launch(shopUrl);
@@ -40,7 +40,7 @@ class Body extends StatelessWidget {
               imagePath: 'assets/faq_artwork.png',
               title: 'FAQ',
               description:
-                  'Need help? We\'ve got you covered. Click this button to browse our comprehensive FAQ.',
+                  'Need help? We’ve got you covered. Click here to browse our comprehensive FAQ.',
               onTap: () async {
                 if (await canLaunch(faqUrl)) {
                   await launch(faqUrl);
@@ -53,7 +53,7 @@ class Body extends StatelessWidget {
               imagePath: 'assets/logout_artwork.png',
               title: 'Log Out',
               description:
-                  'Thank you for using IDrop. Click this button to log out or switch an account.',
+                  'Thank you for using IDrop. Click here to log out or switch accounts.',
               onTap: () async {
                 final result = await showConfirmationAlert(
                   context,

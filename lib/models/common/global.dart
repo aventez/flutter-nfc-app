@@ -4,6 +4,7 @@ import 'package:idrop/json/user_settings.dart';
 import 'package:idrop/utils/api_service.dart';
 import 'package:idrop/utils/providers.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+import 'package:connectivity/connectivity.dart';
 
 class GlobalModel with ChangeNotifier {
   GlobalModel();
@@ -16,6 +17,9 @@ class GlobalModel with ChangeNotifier {
 
   UserSettingsInfo activeAccount;
   String jwtToken;
+
+  bool loadingUser = true;
+  bool networkConnectivity = false;
   /* Variables section end */
 
   /* Logic section */
@@ -31,16 +35,33 @@ class GlobalModel with ChangeNotifier {
     final storage = new FlutterSecureStorage();
     jwtToken = await storage.read(key: 'auth:jwt');
 
+    /* Network connectivity stream and initialize user */
+    await checkNetworkConnectivity();
+
     apiService = ApiService(jwtToken);
-    if (jwtToken != null) {
-      activeAccount = await apiService.getUserSettingsInfo();
+    if (networkConnectivity && jwtToken != null) {
+      refreshUser();
+    } else {
+      refresh();
     }
+  }
+
+  Future<void> checkNetworkConnectivity() async {
+    final result = await Connectivity().checkConnectivity();
+    networkConnectivity = result != ConnectivityResult.none;
 
     refresh();
   }
 
   void refreshUser() async {
-    activeAccount = await apiService.getUserSettingsInfo();
+    if (networkConnectivity) {
+      loadingUser = true;
+      refresh();
+
+      activeAccount = await apiService.getUserSettingsInfo();
+      loadingUser = false;
+    }
+
     refresh();
   }
 

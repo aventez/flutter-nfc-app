@@ -8,10 +8,12 @@ import 'package:provider/provider.dart';
 class ProfileLink extends StatelessWidget {
   final String brand;
   final String name;
+  final String message;
 
   const ProfileLink({
     @required this.brand,
     @required this.name,
+    @required this.message,
   });
 
   @override
@@ -73,7 +75,11 @@ class ProfileLink extends StatelessWidget {
                 Expanded(
                   child: Container(
                     alignment: Alignment.centerRight,
-                    child: ProfileLinksIcons(name: name, brand: brand),
+                    child: ProfileLinksIcons(
+                      name: name,
+                      brand: brand,
+                      message: message,
+                    ),
                   ),
                 ),
               ],

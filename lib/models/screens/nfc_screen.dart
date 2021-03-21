@@ -34,7 +34,7 @@ class NfcScreenModel extends ChangeNotifier {
 
     Stream<NDEFTag> stream = NFC.writeNDEF(newMessage, once: true);
     stream.listen((NDEFTag tag) {
-      showOkAlert(context, 'NFC Tag was activated.');
+      showOkAlert(context, 'Your IDrop was successfully activated.');
     });
   }
   /* Logic section end */

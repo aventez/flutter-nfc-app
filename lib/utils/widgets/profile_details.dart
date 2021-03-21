@@ -17,7 +17,7 @@ class ProfileDetails extends StatelessWidget {
     Widget _buildWelcomeText() {
       return Container(
         child: Text(
-          'Hey, $name!',
+          name,
           style: TextStyle(fontSize: 24.0),
         ),
       );

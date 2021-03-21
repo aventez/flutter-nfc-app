@@ -10,14 +10,14 @@ class Body extends StatelessWidget {
       physics: BouncingScrollPhysics(),
       padding: EdgeInsets.all(size.width * 0.1),
       children: [
-        SizedBox(height: size.height * 0.12),
+        SizedBox(height: size.height * 0.08),
         Center(
           child: Image.asset(
             'assets/edit_profile_artwork.png',
-            width: size.width * 0.5,
+            width: size.height * 0.2,
           ),
         ),
-        SizedBox(height: size.height * 0.05),
+        SizedBox(height: size.height * 0.04),
         Text(
           'Edit your profile',
           style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),

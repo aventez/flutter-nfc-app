@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:idrop/json/user_basic.dart';
 import 'package:idrop/json/user_settings.dart';
 import 'package:idrop/utils/api_strategy.dart';

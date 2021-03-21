@@ -9,10 +9,12 @@ import 'package:provider/provider.dart';
 class ProfileLinksIcons extends StatelessWidget {
   final String name;
   final String brand;
+  final String message;
 
   ProfileLinksIcons({
     @required this.name,
     @required this.brand,
+    @required this.message,
   });
 
   @override
@@ -37,7 +39,7 @@ class ProfileLinksIcons extends StatelessWidget {
                 ),
               ],
               title: 'Linking account',
-              message: 'Enter your account name',
+              message: this.message,
               okLabel: 'Save',
               cancelLabel: 'Cancel',
               useRootNavigator: true,

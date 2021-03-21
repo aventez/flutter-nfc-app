@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:idrop/models/common/global.dart';
+import 'package:idrop/utils/alerts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
+//import 'package:permission_handler/permission_handler.dart';
 
 class EditProfileScreenModel extends ChangeNotifier {
   BuildContext context;
@@ -40,18 +43,29 @@ class EditProfileScreenModel extends ChangeNotifier {
     final global = Provider.of<GlobalModel>(context, listen: false);
     final picker = ImagePicker();
 
-    final pickedFile = await picker.getImage(
-      source: ImageSource.gallery,
-      maxHeight: 1500,
-      maxWidth: 1500,
-    );
-    if (pickedFile != null) {
-      final result = await global.apiService.updateAvatar(
-        pickedFile.path,
+    PickedFile file;
+
+    bool storagePermission = await Permission.storage.isGranted;
+    bool photosPermission = await Permission.photos.isGranted;
+
+    if (storagePermission == true && photosPermission == true) {
+      file = await picker.getImage(
+        source: ImageSource.gallery,
+        maxHeight: 1500,
+        maxWidth: 1500,
       );
+    }
+
+    if (file != null) {
+      final result = await global.apiService.updateAvatar(file.path);
       if (result == true) {
         global.refreshUser();
       }
+    } else {
+      showOkAlert(
+        context,
+        'This app does not have access to your photos or videos. You can grant access in Privacy Settings.',
+      );
     }
   }
 

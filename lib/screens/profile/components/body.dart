@@ -29,66 +29,92 @@ class Body extends StatelessWidget {
             ProfileLink(
               brand: 'instagramAccount',
               name: profile.instagramAccount,
+              message:
+                  'Enter your Instagram username (without @). Example: idropsocial',
             ),
             ProfileLink(
               brand: 'twitterAccount',
               name: profile.twitterAccount,
+              message:
+                  'Enter your Twitter username. Use @. Example: @idropsocial',
             ),
             ProfileLink(
               brand: 'facebookAccount',
               name: profile.facebookAccount,
+              message:
+                  'Enter your Facebook profil URL/link. Go to facebook.com and open your Facebook profile or page. Then copy and paste the url link here.',
             ),
             ProfileLink(
               brand: 'linkedinAccount',
               name: profile.linkedinAccount,
+              message: 'Enter your LinkedIn profile full URL/link.',
             ),
             ProfileLink(
               brand: 'phoneNumber',
               name: profile.phoneNumber,
+              message:
+                  'Enter your phone number with your country code. Ex: +33 / +44',
             ),
             ProfileLink(
               brand: 'whatsAppNumber',
               name: profile.whatsAppNumber,
+              message:
+                  'Enter your What’s App number without your country code.',
             ),
             ProfileLink(
               brand: 'publicEmail',
               name: profile.publicEmail,
+              message: 'Enter your Email address.',
             ),
             ProfileLink(
               brand: 'tiktokAccount',
               name: profile.tiktokAccount,
+              message:
+                  'Enter your TikTok username with @. Example: @idropsocial',
             ),
             ProfileLink(
               brand: 'spotifyAccount',
               name: profile.spotifyAccount,
+              message: 'Enter your Spotify URL/Link',
             ),
             ProfileLink(
               brand: 'appleMusicAccount',
               name: profile.appleMusicAccount,
+              message: 'Enter an Apple Music link. Copy paste here.',
             ),
             ProfileLink(
               brand: 'cashAppAccount',
               name: profile.cashAppAccount,
+              message: 'Enter your CashApp username',
             ),
             ProfileLink(
               brand: 'venmoAccount',
               name: profile.venmoAccount,
+              message: 'Enter your Venmo username',
             ),
             ProfileLink(
               brand: 'paypalAccount',
               name: profile.paypalAccount,
+              message:
+                  'Go to paypal.me and tap “Create your PayPal.Me Link”. Copy and paste here',
             ),
             ProfileLink(
               brand: 'twitchAccount',
               name: profile.twitchAccount,
+              message:
+                  'Enter your only your Twitch username. Example: idropsocial',
             ),
             ProfileLink(
               brand: 'snapchatName',
               name: profile.snapchatName,
+              message:
+                  'Enter your Snapchat username. (Without @). Example: idrop_social',
             ),
             ProfileLink(
               brand: 'website',
               name: profile.website,
+              message:
+                  'Enter your website. Example: https://www.idropsocial.com',
             ),
           ],
         ),

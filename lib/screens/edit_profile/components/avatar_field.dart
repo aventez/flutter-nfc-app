@@ -13,20 +13,20 @@ class AvatarField extends StatelessWidget {
 
     return Column(
       children: [
-        GestureDetector(
-          onTap: () => model.handleChangeAvatar(),
-          child: ProfileAvatar(
-            radius: size.height * 0.075,
-            avatarUrl: global.activeAccount.avatarURL,
-            borderSize: 0,
-          ),
+        ProfileAvatar(
+          radius: size.height * 0.075,
+          avatarUrl: global.activeAccount.avatarURL,
+          borderSize: 0,
         ),
         global.activeAccount.avatarURL != null
             ? TextButton(
                 onPressed: () => model.handleDeleteAvatar(),
-                child: Text('Delete avatar'),
+                child: Text('Delete profile picture'),
               )
-            : Container(),
+            : TextButton(
+                onPressed: () => model.handleChangeAvatar(),
+                child: Text('Click here to edit picture'),
+              ),
       ],
     );
   }

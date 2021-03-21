@@ -55,6 +55,14 @@ class Home extends StatelessWidget {
     final global = Provider.of<GlobalModel>(context);
     final palette = theme.getPalette();
 
+    if (global.networkConnectivity == false) {
+      return global.providerConfig.getOfflineScreen();
+    }
+
+    if (global.loadingUser == true) {
+      return global.providerConfig.getLoadingScreen();
+    }
+
     if (global.activeAccount == null) {
       return global.providerConfig.getLoginScreen();
     }

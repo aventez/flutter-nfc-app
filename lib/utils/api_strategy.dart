@@ -13,7 +13,7 @@ class ApiStrategy {
 
   Future<Response> get(String path) async {
     final response = await http.get(
-      '$apiUrl/$path',
+      getApiUri(path),
       headers: {HttpHeaders.authorizationHeader: 'Bearer $token'},
     );
 
@@ -22,7 +22,7 @@ class ApiStrategy {
 
   Future<Response> delete(String path) async {
     final response = await http.delete(
-      '$apiUrl/$path',
+      getApiUri(path),
       headers: {HttpHeaders.authorizationHeader: 'Bearer $token'},
     );
 
@@ -31,7 +31,7 @@ class ApiStrategy {
 
   Future<Response> post(String path, Map<String, dynamic> data) async {
     final response = await http.post(
-      '$apiUrl/$path',
+      getApiUri(path),
       headers: {
         HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',
         HttpHeaders.authorizationHeader: 'Bearer $token',
