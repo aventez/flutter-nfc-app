@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:idrop/models/common/global.dart';
 import 'package:idrop/utils/alerts.dart';
 import 'package:nfc_in_flutter/nfc_in_flutter.dart';
@@ -9,6 +10,8 @@ class NfcScreenModel extends ChangeNotifier {
   BuildContext context;
 
   /* Variables section */
+  static const platform = const MethodChannel('idrop.lib/nfc');
+
   StreamSubscription<NDEFTag> streamSubscription;
   bool supportsNfc = false;
   /* Variables section end */
@@ -30,14 +33,13 @@ class NfcScreenModel extends ChangeNotifier {
       'user/profile/$accountId',
     );
 
-    // First format the tag
-    NDEFMessage message = NDEFMessage.withRecords([]);
-    Stream<NDEFTag> stream = NFC.writeNDEF(message, once: true);
-    stream.listen((NDEFTag tag) async {
-      showOkAlert(context, 'NFC tag formatted');
-      await tag.write(NDEFMessage.withRecords([NDEFRecord.uri(path)]));
-      showOkAlert(context, 'NFC tag activated');
-    });
+    // Format and write URI to the tag
+    final result = await platform.invokeMethod('writeNfc', path.toString());
+    if (result == true) {
+      showOkAlert(context, 'Your IDrop was successfully activated.');
+    } else {
+      showOkAlert(context, 'Failed to activate your IDrop tag.');
+    }
   }
   /* Logic section end */
 }
