@@ -26,6 +26,10 @@
 	<true/>
 	<key>NFCReaderUsageDescription</key>
 	<string>NFC is used to save your profile on iDrop NFC tag</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Bluetooth helps to find devices when saving your profile on a tag</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Bluetooth helps to find devices when saving your profile on a tag</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>App wants access to photo library to upload your profile picture</string>
 	<key>UILaunchStoryboardName</key>
