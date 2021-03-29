@@ -18,7 +18,7 @@ class GlobalModel with ChangeNotifier {
   UserSettingsInfo activeAccount;
   String jwtToken;
 
-  bool loadingUser = true;
+  bool loadingUser = false;
   bool networkConnectivity = false;
   /* Variables section end */
 
