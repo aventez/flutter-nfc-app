@@ -21,10 +21,10 @@ class Footer extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Version 1.011',
+              Text('Version 1.0',
                   style: TextStyle(color: palette.textLightColor)),
               SizedBox(width: size.width * 0.03),
-              Text('IDrop Ltd.',
+              Text('IDrop SARL',
                   style: TextStyle(color: palette.textLightColor)),
             ],
           ),

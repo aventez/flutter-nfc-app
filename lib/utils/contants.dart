@@ -7,6 +7,7 @@ final Map<String, dynamic> brandKeys = {
   'whatsAppNumber': 'WhatsApp',
   'publicEmail': 'E-mail',
   'youtubeAccount': 'YouTube',
+  'soundcloudAccount': 'SoundCloud',
   'tiktokAccount': 'TikTok',
   'spotifyAccount': 'Spotify',
   'appleMusicAccount': 'Apple Music',

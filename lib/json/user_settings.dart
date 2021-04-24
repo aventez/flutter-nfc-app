@@ -43,6 +43,7 @@ class Profile {
   String whatsAppNumber;
   String publicEmail;
   String youtubeAccount;
+  String soundcloudAccount;
   String tiktokAccount;
   String spotifyAccount;
   String appleMusicAccount;
@@ -62,6 +63,7 @@ class Profile {
       this.whatsAppNumber,
       this.publicEmail,
       this.youtubeAccount,
+      this.soundcloudAccount,
       this.tiktokAccount,
       this.spotifyAccount,
       this.appleMusicAccount,
@@ -81,6 +83,7 @@ class Profile {
     whatsAppNumber = json['whatsAppNumber'];
     publicEmail = json['publicEmail'];
     youtubeAccount = json['youtubeAccount'];
+    soundcloudAccount = json['soundcloudAccount'];
     tiktokAccount = json['tiktokAccount'];
     spotifyAccount = json['spotifyAccount'];
     appleMusicAccount = json['appleMusicAccount'];
@@ -102,6 +105,7 @@ class Profile {
     data['whatsAppNumber'] = this.whatsAppNumber;
     data['publicEmail'] = this.publicEmail;
     data['youtubeAccount'] = this.youtubeAccount;
+    data['soundcloudAccount'] = this.soundcloudAccount;
     data['tiktokAccount'] = this.tiktokAccount;
     data['spotifyAccount'] = this.spotifyAccount;
     data['appleMusicAccount'] = this.appleMusicAccount;

@@ -3,7 +3,9 @@ import 'package:idrop/screens/register/components/email_field.dart';
 import 'package:idrop/screens/register/components/password_field.dart';
 import 'package:idrop/screens/register/components/repeat_password_field.dart';
 import 'package:idrop/screens/register/components/submit_button.dart';
+import 'package:idrop/utils/alerts.dart';
 import 'package:idrop/utils/widgets/checkbox_form_field.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class RegisterForm extends StatefulWidget {
   @override
@@ -12,6 +14,9 @@ class RegisterForm extends StatefulWidget {
 
 class RegisterFormState extends State<RegisterForm> {
   final formKey = GlobalKey<FormState>();
+
+  final termsUrl =
+      'https://www.idropsocial.com/application-terms-and-conditions';
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +32,18 @@ class RegisterFormState extends State<RegisterForm> {
           SizedBox(height: size.height * 0.02),
           RegisterRepeatPasswordField(),
           CheckboxFormField(
-            title: Text(
-              'I agree to our Master Services Agreement and acknowledge our Privacy Policy.',
-              style: TextStyle(fontSize: 12.0),
+            title: GestureDetector(
+              onTap: () async {
+                if (await canLaunch(termsUrl)) {
+                  await launch(termsUrl);
+                } else {
+                  showOkAlert(context, 'Unfortunately, could not launch URL.');
+                }
+              },
+              child: Text(
+                'I agree to our Master Services Agreement and acknowledge our Privacy Policy.',
+                style: TextStyle(fontSize: 12.0),
+              ),
             ),
             validator: (value) =>
                 value == false ? 'The field is required' : null,

@@ -8,7 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class Body extends StatelessWidget {
   final shopUrl = 'https://www.idropsocial.com/shop';
-  final faqUrl = 'https://www.idropsocial.com/faq1';
+  final faqUrl = 'https://www.idropsocial.com/help';
 
   @override
   Widget build(BuildContext context) {

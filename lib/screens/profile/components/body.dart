@@ -39,15 +39,28 @@ class Body extends StatelessWidget {
                   'Enter your Twitter username. Use @. Example: @idropsocial',
             ),
             ProfileLink(
+              brand: 'youtubeAccount',
+              name: profile.youtubeAccount,
+              message:
+                  'Copy your YouTube account URL and paste at the bottom of the page here.',
+            ),
+            ProfileLink(
+              brand: 'soundcloudAccount',
+              name: profile.soundcloudAccount,
+              message:
+                  'Copy your SoundCloud account URL and paste at the bottom of the page here.',
+            ),
+            ProfileLink(
               brand: 'facebookAccount',
               name: profile.facebookAccount,
               message:
-                  'Enter your Facebook profil URL/link. Go to facebook.com and open your Facebook profile or page. Then copy and paste the url link here.',
+                  'Go to your Facebook profile or page. Click on the 3 dots « … » and copy/paste the URL at the bottom of the page here.',
             ),
             ProfileLink(
               brand: 'linkedinAccount',
               name: profile.linkedinAccount,
-              message: 'Enter your LinkedIn profile full URL/link.',
+              message:
+                  'Go to your LinkedIn profile and scroll down to the “Contact” section. Find your LinkedIn profile URL and copy/paste here.',
             ),
             ProfileLink(
               brand: 'phoneNumber',
