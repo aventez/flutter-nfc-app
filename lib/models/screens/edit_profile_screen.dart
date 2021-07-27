@@ -43,13 +43,13 @@ class EditProfileScreenModel extends ChangeNotifier {
     final global = Provider.of<GlobalModel>(context, listen: false);
     final picker = ImagePicker();
 
-    PickedFile file;
+    XFile file;
 
-    bool storagePermission = await Permission.storage.isGranted;
-    bool photosPermission = await Permission.photos.isGranted;
+    bool storagePermission = await Permission.storage.request().isGranted;
+    bool photosPermission = await Permission.photos.request().isGranted;
 
     if (storagePermission == true && photosPermission == true) {
-      file = await picker.getImage(
+      file = await picker.pickImage(
         source: ImageSource.gallery,
         maxHeight: 1500,
         maxWidth: 1500,
