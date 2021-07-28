@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 class App extends StatelessWidget {
   Widget buildChild(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         primaryColor: Colors.grey.shade200,
