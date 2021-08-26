@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:idrop/models/common/global.dart';
@@ -34,11 +35,28 @@ class NfcScreenModel extends ChangeNotifier {
     );
 
     // Format and write URI to the tag
-    final result = await platform.invokeMethod('writeNfc', path.toString());
-    if (result == true) {
-      showOkAlert(context, 'Your IDrop was successfully activated.');
+
+    if (Platform.isIOS) {
+      final result = await platform.invokeMethod('writeNfc', path.toString());
+      if (result == true) {
+        showOkAlert(context, 'Your IDrop was successfully activated.');
+      } else {
+        showOkAlert(context, 'Failed to activate your IDrop tag.');
+      }
+    } else if (Platform.isAndroid) {
+      NDEFMessage newMessage = NDEFMessage.withRecords([
+        NDEFRecord.uri(path),
+      ]);
+
+      Stream<NDEFTag> stream = NFC.writeNDEF(newMessage, once: true);
+      stream.listen((NDEFTag tag) {
+        showOkAlert(context, 'NFC Tag was activated.');
+      });
     } else {
-      showOkAlert(context, 'Failed to activate your IDrop tag.');
+      showOkAlert(
+        context,
+        'Undefined platform. Please contact support to get more information.',
+      );
     }
   }
   /* Logic section end */
