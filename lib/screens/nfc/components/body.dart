@@ -42,9 +42,11 @@ class Body extends StatelessWidget {
                     ),
                     SizedBox(height: size.height * 0.04),
                     ElevatedButton(
-                      onPressed: () async {
-                        await model.writeNfc();
-                      },
+                      onPressed: model.writingNfc == false
+                          ? () async {
+                              await model.writeNfc();
+                            }
+                          : null,
                       style: ButtonStyle(
                         shape: MaterialStateProperty.all<OutlinedBorder>(
                           RoundedRectangleBorder(
@@ -62,7 +64,11 @@ class Body extends StatelessWidget {
                         ),
                         elevation: MaterialStateProperty.all<double>(0),
                       ),
-                      child: Text('Activate'.toUpperCase()),
+                      child: Text(
+                        model.writingNfc == false
+                            ? 'Activate'.toUpperCase()
+                            : 'Scanning...'.toUpperCase(),
+                      ),
                     ),
                   ],
                 ),

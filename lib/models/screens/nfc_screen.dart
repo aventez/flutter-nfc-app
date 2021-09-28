@@ -13,8 +13,9 @@ class NfcScreenModel extends ChangeNotifier {
   /* Variables section */
   static const platform = const MethodChannel('idrop.lib/nfc');
 
-  StreamSubscription<NDEFTag> streamSubscription;
+  Stream<NDEFTag> stream;
   bool supportsNfc = false;
+  bool writingNfc = false;
   /* Variables section end */
 
   /* Logic section */
@@ -44,14 +45,27 @@ class NfcScreenModel extends ChangeNotifier {
         showOkAlert(context, 'Failed to activate your IDrop tag.');
       }
     } else if (Platform.isAndroid) {
-      NDEFMessage newMessage = NDEFMessage.withRecords([
-        NDEFRecord.uri(path),
-      ]);
+      if (this.writingNfc == false) {
+        NDEFMessage newMessage = NDEFMessage.withRecords([
+          NDEFRecord.uri(path),
+        ]);
 
-      Stream<NDEFTag> stream = NFC.writeNDEF(newMessage, once: true);
-      stream.listen((NDEFTag tag) {
-        showOkAlert(context, 'NFC Tag was activated.');
-      });
+        showOkAlert(
+          context,
+          'You are writing your iDrop. Now close this window and hold your phone near a writable NFC tag to update.',
+        );
+
+        this.stream = NFC.writeNDEF(newMessage, once: true);
+        this.stream.listen((NDEFTag tag) {
+          showOkAlert(context, 'Your IDrop has been activated successfully.');
+          this.writingNfc = false;
+          this.refresh();
+        });
+
+        this.writingNfc = true;
+      }
+
+      this.refresh();
     } else {
       showOkAlert(
         context,
