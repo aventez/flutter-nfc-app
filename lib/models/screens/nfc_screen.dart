@@ -52,12 +52,15 @@ class NfcScreenModel extends ChangeNotifier {
 
         showOkAlert(
           context,
-          'You are writing your iDrop. Now close this window and hold your phone near a writable NFC tag to update.',
+          'You are activating your IDrop. Hold your IDrop behind your phone and wait for the success notification. (Activation zone depends on phones, most likely at the top or middle back of it.)',
         );
 
         this.stream = NFC.writeNDEF(newMessage, once: true);
         this.stream.listen((NDEFTag tag) {
-          showOkAlert(context, 'Your IDrop has been activated successfully.');
+          showOkAlert(
+            context,
+            'Your IDrop is successfully activated. You can now stick it on the desired area.',
+          );
           this.writingNfc = false;
           this.refresh();
         });
