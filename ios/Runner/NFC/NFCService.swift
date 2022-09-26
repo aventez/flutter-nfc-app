@@ -2,7 +2,7 @@
 //  NFCService.swift
 //  Runner
 //
-//  Created by Michał Mańkus on 25/03/2021.
+//  Created by Filip Szymański on 26/09/2022.
 //
 
 import Foundation

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/models/screens/more_screen.dart';
-import 'package:idrop/screens/more/components/tab_item.dart';
-import 'package:idrop/utils/alerts.dart';
-import 'package:idrop/utils/widgets/footer.dart';
+import 'package:IDrop/models/screens/more_screen.dart';
+import 'package:IDrop/screens/more/components/tab_item.dart';
+import 'package:IDrop/utils/alerts.dart';
+import 'package:IDrop/utils/widgets/footer.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Body extends StatelessWidget {
-  final shopUrl = 'https://www.idropsocial.com/shop';
-  final faqUrl = 'https://www.idropsocial.com/help';
+  final shopUrl = 'https://idropsocial.com/collections/all';
+  final faqUrl = 'https://idropsocial.com/pages/faq';
 
   @override
   Widget build(BuildContext context) {

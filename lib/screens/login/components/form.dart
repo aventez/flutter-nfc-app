@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/screens/login/components/email_field.dart';
-import 'package:idrop/screens/login/components/password_field.dart';
-import 'package:idrop/screens/login/components/recover_password.dart';
-import 'package:idrop/screens/login/components/submit_button.dart';
+import 'package:IDrop/screens/login/components/email_field.dart';
+import 'package:IDrop/screens/login/components/password_field.dart';
+import 'package:IDrop/screens/login/components/recover_password.dart';
+import 'package:IDrop/screens/login/components/submit_button.dart';
 
 class LoginForm extends StatefulWidget {
   @override

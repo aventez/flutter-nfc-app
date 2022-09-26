@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/models/common/theme.dart';
-import 'package:idrop/models/screens/nfc_screen.dart';
-import 'package:idrop/screens/nfc/components/nfc_error.dart';
+import 'package:IDrop/models/common/theme.dart';
+import 'package:IDrop/models/screens/nfc_screen.dart';
+import 'package:IDrop/screens/nfc/components/nfc_error.dart';
 import 'package:provider/provider.dart';
 
 class Body extends StatelessWidget {

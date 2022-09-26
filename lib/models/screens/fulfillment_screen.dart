@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/models/common/global.dart';
+import 'package:IDrop/models/common/global.dart';
 import 'package:provider/provider.dart';
 
 class FulfillmentScreenModel extends ChangeNotifier {
@@ -22,7 +22,8 @@ class FulfillmentScreenModel extends ChangeNotifier {
     requestInQueue = true;
     refresh();
 
-    final result = await global.apiService.updateUserSettings({
+    final result =
+        await global.apiService.updateProfileSettings(global.activeProfileId, {
       'name': nameFieldContent,
       'job': jobFieldContent,
     });

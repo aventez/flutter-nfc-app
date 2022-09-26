@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/models/common/theme.dart';
-import 'package:idrop/utils/widgets/brand_logo.dart';
+import 'package:IDrop/models/common/theme.dart';
+import 'package:IDrop/utils/widgets/brand_logo.dart';
 import 'package:provider/provider.dart';
 
 class Footer extends StatelessWidget {

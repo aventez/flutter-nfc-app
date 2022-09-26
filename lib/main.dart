@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
-import 'package:idrop/app.dart';
-import 'package:idrop/models/common/global.dart';
-import 'package:idrop/models/common/theme.dart';
+import 'package:IDrop/app.dart';
+import 'package:IDrop/models/common/global.dart';
+import 'package:IDrop/models/common/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

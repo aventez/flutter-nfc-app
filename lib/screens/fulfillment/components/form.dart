@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/screens/fulfillment/components/job_field.dart';
-import 'package:idrop/screens/fulfillment/components/name_field.dart';
-import 'package:idrop/screens/fulfillment/components/submit_button.dart';
+import 'package:IDrop/screens/fulfillment/components/job_field.dart';
+import 'package:IDrop/screens/fulfillment/components/name_field.dart';
+import 'package:IDrop/screens/fulfillment/components/submit_button.dart';
 
 class FulfillmentForm extends StatefulWidget {
   @override

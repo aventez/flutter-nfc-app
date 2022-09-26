@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/utils/scaffolds/base_scaffold.dart';
-import 'package:idrop/utils/widgets/brand_logo.dart';
+import 'package:IDrop/utils/scaffolds/base_scaffold.dart';
+import 'package:IDrop/utils/widgets/brand_logo.dart';
 
 class OfflineScreen extends StatelessWidget {
   @override

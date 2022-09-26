@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/models/common/theme.dart';
-import 'package:idrop/screens/profile/components/link_icons.dart';
-import 'package:idrop/screens/profile/components/link_state_text.dart';
-import 'package:idrop/utils/contants.dart';
+import 'package:IDrop/models/common/theme.dart';
+import 'package:IDrop/screens/profile/components/link_icons.dart';
+import 'package:IDrop/screens/profile/components/link_state_text.dart';
+import 'package:IDrop/utils/contants.dart';
 import 'package:provider/provider.dart';
 
 class ProfileLink extends StatelessWidget {

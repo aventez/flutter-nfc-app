@@ -1,23 +1,25 @@
-import 'package:idrop/models/screens/edit_profile_screen.dart';
-import 'package:idrop/models/screens/fulfillment_screen.dart';
-import 'package:idrop/models/screens/loading_screen.dart';
-import 'package:idrop/models/screens/login_screen.dart';
-import 'package:idrop/models/screens/more_screen.dart';
-import 'package:idrop/models/screens/nfc_screen.dart';
-import 'package:idrop/models/screens/offline_screen.dart';
-import 'package:idrop/models/screens/profile_screen.dart';
-import 'package:idrop/models/screens/register_screen.dart';
-import 'package:idrop/models/screens/settings_screen.dart';
-import 'package:idrop/screens/edit_profile/edit_profile.dart';
-import 'package:idrop/screens/fulfillment/fulfillment.dart';
-import 'package:idrop/screens/loading/loading.dart';
-import 'package:idrop/screens/login/login.dart';
-import 'package:idrop/screens/more/more.dart';
-import 'package:idrop/screens/nfc/nfc.dart';
-import 'package:idrop/screens/offline/offline.dart';
-import 'package:idrop/screens/profile/profile.dart';
-import 'package:idrop/screens/register/register.dart';
-import 'package:idrop/screens/settings/settings.dart';
+import 'package:IDrop/models/screens/edit_profile_screen.dart';
+import 'package:IDrop/models/screens/fulfillment_screen.dart';
+import 'package:IDrop/models/screens/loading_screen.dart';
+import 'package:IDrop/models/screens/login_screen.dart';
+import 'package:IDrop/models/screens/more_screen.dart';
+import 'package:IDrop/models/screens/nfc_screen.dart';
+import 'package:IDrop/models/screens/offline_screen.dart';
+import 'package:IDrop/models/screens/profile_screen.dart';
+import 'package:IDrop/models/screens/register_screen.dart';
+import 'package:IDrop/models/screens/settings_screen.dart';
+import 'package:IDrop/models/screens/switch_profile_screen.dart';
+import 'package:IDrop/screens/edit_profile/edit_profile.dart';
+import 'package:IDrop/screens/fulfillment/fulfillment.dart';
+import 'package:IDrop/screens/loading/loading.dart';
+import 'package:IDrop/screens/login/login.dart';
+import 'package:IDrop/screens/more/more.dart';
+import 'package:IDrop/screens/nfc/nfc.dart';
+import 'package:IDrop/screens/offline/offline.dart';
+import 'package:IDrop/screens/profile/profile.dart';
+import 'package:IDrop/screens/register/register.dart';
+import 'package:IDrop/screens/settings/settings.dart';
+import 'package:IDrop/screens/switch_profile/edit_profile.dart';
 import 'package:provider/provider.dart';
 
 class ProviderConfig {
@@ -87,6 +89,13 @@ class ProviderConfig {
     return ChangeNotifierProvider<EditProfileScreenModel>(
       create: (context) => EditProfileScreenModel(context),
       child: EditProfileScreen(),
+    );
+  }
+
+  ChangeNotifierProvider<SwitchProfileScreenModel> getSwitchProfileScreen() {
+    return ChangeNotifierProvider<SwitchProfileScreenModel>(
+      create: (context) => SwitchProfileScreenModel(context),
+      child: SwitchProfileScreen(),
     );
   }
 

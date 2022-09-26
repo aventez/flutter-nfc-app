@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
-import 'package:idrop/models/common/global.dart';
-import 'package:idrop/models/screens/edit_profile_screen.dart';
+import 'package:IDrop/models/common/global.dart';
+import 'package:IDrop/models/screens/edit_profile_screen.dart';
 import 'package:provider/provider.dart';
 
 class NameField extends StatelessWidget {
@@ -12,9 +12,9 @@ class NameField extends StatelessWidget {
 
     return TextFormField(
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      validator: ValidationBuilder().minLength(2).maxLength(16).build(),
+      validator: ValidationBuilder().minLength(2).maxLength(40).build(),
       onChanged: (value) => model.nameFieldContent = value ?? '',
-      initialValue: global.activeAccount.name,
+      initialValue: global.profileData.name,
       decoration: InputDecoration(
         enabled: !model.requestInQueue,
         labelText: 'Your name',

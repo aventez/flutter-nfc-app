@@ -1,11 +1,13 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:http_parser/http_parser.dart';
 
 class ApiStrategy {
-  static final String apiUrl = "https://app.idropsocial.com/api";
+  static final String apiUrl =
+      "https://app.idropsocial.com/api";
 
   final String token;
 
@@ -31,6 +33,32 @@ class ApiStrategy {
 
   Future<Response> post(String path, Map<String, dynamic> data) async {
     final response = await http.post(
+      getApiUri(path),
+      headers: {
+        HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',
+        HttpHeaders.authorizationHeader: 'Bearer $token',
+      },
+      body: json.encode(data),
+    );
+
+    return response;
+  }
+
+  Future<Response> patch(String path, Map<String, dynamic> data) async {
+    final response = await http.patch(
+      getApiUri(path),
+      headers: {
+        HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',
+        HttpHeaders.authorizationHeader: 'Bearer $token',
+      },
+      body: json.encode(data),
+    );
+
+    return response;
+  }
+
+  Future<Response> put(String path, Map<String, dynamic> data) async {
+    final response = await http.put(
       getApiUri(path),
       headers: {
         HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
-import 'package:idrop/models/screens/settings_screen.dart';
+import 'package:IDrop/models/screens/settings_screen.dart';
 import 'package:provider/provider.dart';
 
 class OldPasswordField extends StatelessWidget {

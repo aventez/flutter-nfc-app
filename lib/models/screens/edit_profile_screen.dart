@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/models/common/global.dart';
-import 'package:idrop/utils/alerts.dart';
+import 'package:IDrop/models/common/global.dart';
+import 'package:IDrop/utils/alerts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +26,8 @@ class EditProfileScreenModel extends ChangeNotifier {
     requestInQueue = true;
     refresh();
 
-    final result = await global.apiService.updateUserSettings({
+    final result =
+        await global.apiService.updateProfileSettings(global.activeProfileId, {
       'name': nameFieldContent,
       'job': jobFieldContent ?? '',
     });
@@ -57,7 +58,10 @@ class EditProfileScreenModel extends ChangeNotifier {
     }
 
     if (file != null) {
-      final result = await global.apiService.updateAvatar(file.path);
+      final result = await global.apiService.updateAvatar(
+        global.activeProfileId,
+        file.path,
+      );
       if (result == true) {
         global.refreshUser();
       }
@@ -71,7 +75,7 @@ class EditProfileScreenModel extends ChangeNotifier {
 
   void handleDeleteAvatar() async {
     final global = Provider.of<GlobalModel>(context, listen: false);
-    final result = await global.apiService.deleteAvatar();
+    final result = await global.apiService.deleteAvatar(global.activeProfileId);
     if (result == true) {
       global.refreshUser();
     }

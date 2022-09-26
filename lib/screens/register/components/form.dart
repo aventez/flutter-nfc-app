@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/screens/register/components/email_field.dart';
-import 'package:idrop/screens/register/components/password_field.dart';
-import 'package:idrop/screens/register/components/repeat_password_field.dart';
-import 'package:idrop/screens/register/components/submit_button.dart';
-import 'package:idrop/utils/alerts.dart';
-import 'package:idrop/utils/widgets/checkbox_form_field.dart';
+import 'package:IDrop/screens/register/components/email_field.dart';
+import 'package:IDrop/screens/register/components/password_field.dart';
+import 'package:IDrop/screens/register/components/repeat_password_field.dart';
+import 'package:IDrop/screens/register/components/submit_button.dart';
+import 'package:IDrop/utils/alerts.dart';
+import 'package:IDrop/utils/widgets/checkbox_form_field.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RegisterForm extends StatefulWidget {

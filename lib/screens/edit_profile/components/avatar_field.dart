@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/models/common/global.dart';
-import 'package:idrop/models/screens/edit_profile_screen.dart';
-import 'package:idrop/utils/widgets/profile_avatar.dart';
+import 'package:IDrop/models/common/global.dart';
+import 'package:IDrop/models/screens/edit_profile_screen.dart';
+import 'package:IDrop/utils/widgets/profile_avatar.dart';
 import 'package:provider/provider.dart';
 
 class AvatarField extends StatelessWidget {
@@ -15,10 +15,10 @@ class AvatarField extends StatelessWidget {
       children: [
         ProfileAvatar(
           radius: size.height * 0.075,
-          avatarUrl: global.activeAccount.avatarURL,
+          avatarUrl: global.profileData.avatarURL,
           borderSize: 0,
         ),
-        global.activeAccount.avatarURL != null
+        global.profileData.avatarURL != null
             ? TextButton(
                 onPressed: () => model.handleDeleteAvatar(),
                 child: Text('Delete profile picture'),

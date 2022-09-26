@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
-import 'package:idrop/models/common/global.dart';
-import 'package:idrop/models/screens/edit_profile_screen.dart';
+import 'package:IDrop/models/common/global.dart';
+import 'package:IDrop/models/screens/edit_profile_screen.dart';
 import 'package:provider/provider.dart';
 
 class JobField extends StatelessWidget {
@@ -12,9 +12,9 @@ class JobField extends StatelessWidget {
 
     return TextFormField(
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      validator: ValidationBuilder().maxLength(30).build(),
+      validator: ValidationBuilder(optional: true).maxLength(30).build(),
       onChanged: (value) => model.jobFieldContent = value ?? '',
-      initialValue: global.activeAccount.job ?? '',
+      initialValue: global.profileData.job ?? '',
       decoration: InputDecoration(
         enabled: !model.requestInQueue,
         labelText: 'Job position (optional)',

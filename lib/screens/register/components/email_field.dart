@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
-import 'package:idrop/models/screens/register_screen.dart';
+import 'package:IDrop/models/screens/register_screen.dart';
 import 'package:provider/provider.dart';
 
 class RegisterEmailField extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/screens/settings/components/theme_element.dart';
-import 'package:idrop/utils/widgets/section_header.dart';
+import 'package:IDrop/screens/settings/components/theme_element.dart';
+import 'package:IDrop/utils/widgets/section_header.dart';
 
 class ThemeChoose extends StatelessWidget {
   @override

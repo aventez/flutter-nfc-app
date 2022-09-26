@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:idrop/models/screens/register_screen.dart';
-import 'package:idrop/screens/register/components/form.dart';
+import 'package:IDrop/models/screens/register_screen.dart';
+import 'package:IDrop/screens/register/components/form.dart';
 import 'package:provider/provider.dart';
 
 class Body extends StatelessWidget {

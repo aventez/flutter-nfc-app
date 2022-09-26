@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/models/common/global.dart';
-import 'package:idrop/models/screens/edit_profile_screen.dart';
-import 'package:idrop/screens/edit_profile/components/job_field.dart';
-import 'package:idrop/screens/edit_profile/components/name_field.dart';
-import 'package:idrop/screens/edit_profile/components/submit_button.dart';
+import 'package:IDrop/models/common/global.dart';
+import 'package:IDrop/models/screens/edit_profile_screen.dart';
+import 'package:IDrop/screens/edit_profile/components/job_field.dart';
+import 'package:IDrop/screens/edit_profile/components/name_field.dart';
+import 'package:IDrop/screens/edit_profile/components/submit_button.dart';
 import 'package:provider/provider.dart';
 import 'package:after_init/after_init.dart';
 
@@ -20,8 +20,8 @@ class EditProfileFormState extends State<EditProfileForm>
   void didInitState() {
     final global = Provider.of<GlobalModel>(context);
     final model = Provider.of<EditProfileScreenModel>(context);
-    model.nameFieldContent = global.activeAccount.name;
-    model.jobFieldContent = global.activeAccount.job;
+    model.nameFieldContent = global.profileData.name;
+    model.jobFieldContent = global.profileData.job;
   }
 
   @override

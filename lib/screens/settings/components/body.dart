@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/screens/settings/components/change_password/form.dart';
-import 'package:idrop/utils/widgets/footer.dart';
-import 'package:idrop/screens/settings/components/theme_choose.dart';
-import 'package:idrop/utils/widgets/section_header.dart';
+import 'package:IDrop/screens/settings/components/change_password/form.dart';
+import 'package:IDrop/utils/widgets/footer.dart';
+import 'package:IDrop/screens/settings/components/theme_choose.dart';
+import 'package:IDrop/utils/widgets/section_header.dart';
+
+import 'activate_premium/form.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -24,6 +26,16 @@ class Body extends StatelessWidget {
               body: Container(
                 margin: EdgeInsets.only(top: 10.0),
                 child: ChangePasswordForm(),
+              ),
+            ),
+            SectionHeader(
+              title: Text(
+                'Activation code',
+                style: TextStyle(fontSize: 19.0, fontWeight: FontWeight.bold),
+              ),
+              body: Container(
+                margin: EdgeInsets.only(top: 10.0),
+                child: ActivatePremiumForm(),
               ),
             ),
             SizedBox(height: size.height * 0.02),

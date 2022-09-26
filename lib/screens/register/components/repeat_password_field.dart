@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/models/screens/register_screen.dart';
+import 'package:IDrop/models/screens/register_screen.dart';
 import 'package:provider/provider.dart';
 
 class RegisterRepeatPasswordField extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:idrop/utils/interfaces/palette.dart';
+import 'package:IDrop/utils/interfaces/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

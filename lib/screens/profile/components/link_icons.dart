@@ -1,9 +1,9 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
-import 'package:idrop/models/common/global.dart';
-import 'package:idrop/models/screens/profile_screen.dart';
-import 'package:idrop/utils/alerts.dart';
+import 'package:IDrop/models/common/global.dart';
+import 'package:IDrop/models/screens/profile_screen.dart';
+import 'package:IDrop/utils/alerts.dart';
 import 'package:provider/provider.dart';
 
 class ProfileLinksIcons extends StatelessWidget {
@@ -64,7 +64,8 @@ class ProfileLinksIcons extends StatelessWidget {
                   );
 
                   if (result == true) {
-                    await global.apiService.updateUserSettings({brand: ''});
+                    await global.apiService.updateProfileSettings(
+                        global.activeProfileId, {brand: ''});
                     global.refreshUser();
                   }
                 },

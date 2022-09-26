@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/models/common/global.dart';
-import 'package:idrop/models/common/theme.dart';
-import 'package:idrop/utils/clippers/semicircle_clipper.dart';
-import 'package:idrop/utils/widgets/profile_avatar.dart';
-import 'package:idrop/utils/widgets/profile_details.dart';
+import 'package:IDrop/models/common/global.dart';
+import 'package:IDrop/models/common/theme.dart';
+import 'package:IDrop/utils/clippers/semicircle_clipper.dart';
+import 'package:IDrop/utils/widgets/profile_avatar.dart';
+import 'package:IDrop/utils/widgets/profile_details.dart';
 import 'package:provider/provider.dart';
 
 class AppHeader extends StatelessWidget {
@@ -42,7 +42,7 @@ class AppHeader extends StatelessWidget {
                 SizedBox(height: size.height * 0.08),
                 ProfileAvatar(
                   radius: size.height * 0.1,
-                  avatarUrl: global.activeAccount.avatarURL,
+                  avatarUrl: global.profileData.avatarURL,
                 ),
                 ProfileDetails(),
               ],

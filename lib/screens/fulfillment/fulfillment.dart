@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/screens/fulfillment/components/body.dart';
-import 'package:idrop/utils/scaffolds/base_scaffold.dart';
+import 'package:IDrop/screens/fulfillment/components/body.dart';
+import 'package:IDrop/utils/scaffolds/base_scaffold.dart';
 
 class FulfillmentScreen extends StatelessWidget {
   @override

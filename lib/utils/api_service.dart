@@ -1,7 +1,8 @@
 import 'dart:convert';
-import 'package:idrop/json/user_basic.dart';
-import 'package:idrop/json/user_settings.dart';
-import 'package:idrop/utils/api_strategy.dart';
+import 'package:IDrop/json/user_basic.dart';
+import 'package:IDrop/json/profile_settings.dart';
+import 'package:IDrop/utils/api_strategy.dart';
+import 'package:flutter/material.dart';
 
 class ApiService {
   final String token;
@@ -22,28 +23,59 @@ class ApiService {
     }
   }
 
-  Future<UserSettingsInfo> getUserSettingsInfo() async {
-    final result = await this.apiStrategy.get('user/settings');
+  Future<ProfileSettingsInfo> getProfileData(String id) async {
+    final result = await this.apiStrategy.get('profile/$id/data');
     if (result.statusCode == 200) {
-      final user = UserSettingsInfo.fromJson(json.decode(result.body));
+      final user = ProfileSettingsInfo.fromJson(json.decode(result.body));
       return user;
     } else {
       return null;
     }
   }
 
-  Future<UserSettingsInfo> updateUserSettings(Map<String, dynamic> data) async {
-    final result = await this.apiStrategy.post('user/settings', data);
+  Future<ProfileSettingsInfo> updateProfileSettings(
+      String id, Map<String, dynamic> data) async {
+    final result = await this.apiStrategy.put('profile/$id', data);
+    if (result.statusCode == 200) {
+      final user = ProfileSettingsInfo.fromJson(json.decode(result.body));
+      return user;
+    } else {
+      return null;
+    }
+  }
+
+  Future<ProfileSettingsInfo> createProfile(Map<String, dynamic> data) async {
+    final result = await this.apiStrategy.post('profile', data);
     if (result.statusCode == 201) {
-      final user = UserSettingsInfo.fromJson(json.decode(result.body));
+      final user = ProfileSettingsInfo.fromJson(json.decode(result.body));
       return user;
     } else {
       return null;
     }
   }
 
-  Future<bool> updateAvatar(path) async {
-    final result = await this.apiStrategy.uploadFile('user/avatar', path);
+  Future<bool> deleteProfile(String id) async {
+    final result = await this.apiStrategy.delete('profile/$id');
+    if (result.statusCode == 200) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> updateActiveProfile(String id) async {
+    final result = await this.apiStrategy.patch('profile/$id/default', {});
+    debugPrint('Setting active response: ' + result.body);
+    if (result.statusCode == 200) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> updateAvatar(String id, path) async {
+    final result =
+        await this.apiStrategy.uploadFile('profile/$id/avatar', path);
     if (result.statusCode == 201) {
       return true;
     } else {
@@ -51,8 +83,8 @@ class ApiService {
     }
   }
 
-  Future<bool> deleteAvatar() async {
-    final result = await this.apiStrategy.delete('user/avatar');
+  Future<bool> deleteAvatar(String id) async {
+    final result = await this.apiStrategy.delete('profile/$id/avatar');
     if (result.statusCode == 200) {
       return true;
     } else {
@@ -64,6 +96,18 @@ class ApiService {
     final result = await this.apiStrategy.post(
       'auth/password-recovery',
       {'email': email},
+    );
+    if (result.statusCode == 201) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> activatePremium(String code) async {
+    final result = await this.apiStrategy.post(
+      'user/activation',
+      {'code': code},
     );
     if (result.statusCode == 201) {
       return true;
@@ -107,4 +151,11 @@ class ApiService {
       return null;
     }
   }
+
+  Future<bool> createWebsite(
+    String activeProfileId,
+    String websiteUrlContent,
+    String iconContent,
+    String nameContent,
+  ) async {}
 }

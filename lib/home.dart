@@ -1,6 +1,6 @@
-import 'package:idrop/models/common/global.dart';
-import 'package:idrop/models/common/theme.dart';
-import 'package:idrop/utils/interfaces/palette.dart';
+import 'package:IDrop/models/common/global.dart';
+import 'package:IDrop/models/common/theme.dart';
+import 'package:IDrop/utils/interfaces/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:provider/provider.dart';
@@ -67,7 +67,7 @@ class Home extends StatelessWidget {
       return global.providerConfig.getLoginScreen();
     }
 
-    if (global.activeAccount.isFulfilled == false) {
+    if (global.profileData.isFulfilled == false) {
       return global.providerConfig.getFulfillmentScreen();
     }
 

@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:idrop/models/common/global.dart';
-import 'package:idrop/utils/alerts.dart';
+import 'package:IDrop/models/common/global.dart';
+import 'package:IDrop/utils/alerts.dart';
 import 'package:nfc_in_flutter/nfc_in_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -30,20 +30,13 @@ class NfcScreenModel extends ChangeNotifier {
 
   Future<void> writeNfc() async {
     final global = Provider.of<GlobalModel>(context, listen: false);
-    final accountId = global.activeAccount.id;
+    final accountId = global.profileData.id;
     final path = global.apiService.apiStrategy.getApiUri(
       'user/profile/$accountId',
     );
 
-    // Format and write URI to the tag
-
     if (Platform.isIOS) {
       final result = await platform.invokeMethod('writeNfc', path.toString());
-      if (result == true) {
-        showOkAlert(context, 'Your IDrop was successfully activated.');
-      } else {
-        showOkAlert(context, 'Failed to activate your IDrop tag.');
-      }
     } else if (Platform.isAndroid) {
       if (this.writingNfc == false) {
         NDEFMessage newMessage = NDEFMessage.withRecords([

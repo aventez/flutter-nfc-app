@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/screens/edit_profile/components/avatar_field.dart';
-import 'package:idrop/screens/edit_profile/components/form.dart';
+import 'package:IDrop/screens/edit_profile/components/avatar_field.dart';
+import 'package:IDrop/screens/edit_profile/components/form.dart';
 
 class Body extends StatelessWidget {
   @override

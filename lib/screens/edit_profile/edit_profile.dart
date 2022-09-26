@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/screens/edit_profile/components/body.dart';
-import 'package:idrop/utils/scaffolds/base_scaffold.dart';
+import 'package:IDrop/screens/edit_profile/components/body.dart';
+import 'package:IDrop/utils/scaffolds/base_scaffold.dart';
 
 class EditProfileScreen extends StatelessWidget {
   @override

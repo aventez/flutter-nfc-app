@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
-import 'package:idrop/models/screens/fulfillment_screen.dart';
+import 'package:IDrop/models/screens/fulfillment_screen.dart';
 import 'package:provider/provider.dart';
 
 class JobField extends StatelessWidget {
@@ -9,7 +9,7 @@ class JobField extends StatelessWidget {
     final model = Provider.of<FulfillmentScreenModel>(context);
     return TextFormField(
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      validator: ValidationBuilder().maxLength(30).build(),
+      validator: ValidationBuilder(optional: true).maxLength(30).build(),
       onChanged: (value) => model.jobFieldContent = value ?? '',
       decoration: InputDecoration(
         enabled: !model.requestInQueue,

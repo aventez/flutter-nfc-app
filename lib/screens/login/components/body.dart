@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:idrop/models/common/global.dart';
-import 'package:idrop/models/screens/login_screen.dart';
-import 'package:idrop/screens/login/components/form.dart';
-import 'package:idrop/utils/widgets/brand_logo.dart';
+import 'package:IDrop/models/common/global.dart';
+import 'package:IDrop/models/screens/login_screen.dart';
+import 'package:IDrop/screens/login/components/form.dart';
+import 'package:IDrop/utils/widgets/brand_logo.dart';
 import 'package:provider/provider.dart';
 
 class Body extends StatelessWidget {

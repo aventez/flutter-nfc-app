@@ -1,6 +1,6 @@
-import 'package:idrop/home.dart';
+import 'package:IDrop/home.dart';
 import 'package:flutter/material.dart';
-import 'package:idrop/models/common/global.dart';
+import 'package:IDrop/models/common/global.dart';
 import 'package:provider/provider.dart';
 
 class App extends StatelessWidget {

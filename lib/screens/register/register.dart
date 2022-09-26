@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/screens/register/components/body.dart';
-import 'package:idrop/utils/scaffolds/base_scaffold.dart';
+import 'package:IDrop/screens/register/components/body.dart';
+import 'package:IDrop/utils/scaffolds/base_scaffold.dart';
 
 class RegisterScreen extends StatelessWidget {
   @override

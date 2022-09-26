@@ -1,40 +1,40 @@
-class UserSettingsInfo {
+import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
+
+class ProfileSettingsInfo {
   String id;
-  String email;
   String job;
   String name;
   String avatarURL;
   bool isFulfilled;
-  Profile profile;
+  ProfileLinks links;
 
-  UserSettingsInfo.fromJson(Map<String, dynamic> json) {
+  ProfileSettingsInfo.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    email = json['email'];
     job = json['job'];
     name = json['name'];
     isFulfilled = json['isFulfilled'];
     avatarURL = json['avatarURL'];
-    profile =
-        json['profile'] != null ? new Profile.fromJson(json['profile']) : null;
+    links =
+        json['links'] != null ? new ProfileLinks.fromJson(json['links']) : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
-    data['email'] = this.email;
     data['job'] = this.job;
     data['name'] = this.name;
     data['isFulfilled'] = this.isFulfilled;
     data['avatarURL'] = this.avatarURL;
 
-    if (this.profile != null) {
-      data['profile'] = this.profile.toJson();
+    if (this.links != null) {
+      data['profile'] = this.links.toJson();
     }
     return data;
   }
 }
 
-class Profile {
+class ProfileLinks {
   String phoneNumber;
   String instagramAccount;
   String twitterAccount;
@@ -52,29 +52,30 @@ class Profile {
   String paypalAccount;
   String twitchAccount;
   String snapchatName;
-  String website;
+  List<Website> websites;
 
-  Profile(
-      {this.phoneNumber,
-      this.instagramAccount,
-      this.twitterAccount,
-      this.facebookAccount,
-      this.linkedinAccount,
-      this.whatsAppNumber,
-      this.publicEmail,
-      this.youtubeAccount,
-      this.soundcloudAccount,
-      this.tiktokAccount,
-      this.spotifyAccount,
-      this.appleMusicAccount,
-      this.cashAppAccount,
-      this.venmoAccount,
-      this.paypalAccount,
-      this.twitchAccount,
-      this.snapchatName,
-      this.website});
+  ProfileLinks({
+    this.phoneNumber,
+    this.instagramAccount,
+    this.twitterAccount,
+    this.facebookAccount,
+    this.linkedinAccount,
+    this.whatsAppNumber,
+    this.publicEmail,
+    this.youtubeAccount,
+    this.soundcloudAccount,
+    this.tiktokAccount,
+    this.spotifyAccount,
+    this.appleMusicAccount,
+    this.cashAppAccount,
+    this.venmoAccount,
+    this.paypalAccount,
+    this.twitchAccount,
+    this.snapchatName,
+    this.websites,
+  });
 
-  Profile.fromJson(Map<String, dynamic> json) {
+  ProfileLinks.fromJson(Map<String, dynamic> json) {
     phoneNumber = json['phoneNumber'];
     instagramAccount = json['instagramAccount'];
     twitterAccount = json['twitterAccount'];
@@ -92,7 +93,9 @@ class Profile {
     paypalAccount = json['paypalAccount'];
     twitchAccount = json['twitchAccount'];
     snapchatName = json['snapchatName'];
-    website = json['website'];
+
+    var list = json['websites'] as List;
+    websites = list.map<Website>((object) => Website.fromJson(object)).toList();
   }
 
   Map<String, dynamic> toJson() {
@@ -114,7 +117,38 @@ class Profile {
     data['paypalAccount'] = this.paypalAccount;
     data['twitchAccount'] = this.twitchAccount;
     data['snapchatName'] = this.snapchatName;
-    data['website'] = this.website;
+    data['websites'] = this.websites;
+
     return data;
+  }
+}
+
+class Website {
+  String id;
+  String url;
+  String name;
+  String icon;
+
+  Website({
+    this.id,
+    this.url,
+    this.name,
+    this.icon,
+  });
+
+  Website.fromJson(data) {
+    id = Uuid().v4();
+    url = data['url'];
+    name = data['name'];
+    icon = data['icon'];
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': this.id,
+      'url': this.url,
+      'name': this.name,
+      'icon': this.icon,
+    };
   }
 }

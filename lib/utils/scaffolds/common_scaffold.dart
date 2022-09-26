@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/utils/scaffolds/base_scaffold.dart';
-import 'package:idrop/utils/widgets/app_header.dart';
+import 'package:IDrop/utils/scaffolds/base_scaffold.dart';
+import 'package:IDrop/utils/widgets/app_header.dart';
 
 class CommonScaffold extends StatelessWidget {
   final Widget body;

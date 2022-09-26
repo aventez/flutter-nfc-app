@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:idrop/utils/scaffolds/base_scaffold.dart';
+import 'package:IDrop/utils/scaffolds/base_scaffold.dart';
 
 class LoadingScreen extends StatelessWidget {
   @override

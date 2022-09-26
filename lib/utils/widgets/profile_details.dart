@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/models/common/global.dart';
-import 'package:idrop/models/common/theme.dart';
+import 'package:IDrop/models/common/global.dart';
+import 'package:IDrop/models/common/theme.dart';
 import 'package:provider/provider.dart';
 
 class ProfileDetails extends StatelessWidget {
@@ -11,14 +11,17 @@ class ProfileDetails extends StatelessWidget {
     final global = Provider.of<GlobalModel>(context);
     final palette = theme.getPalette();
 
-    final name = global.activeAccount.name;
-    final job = global.activeAccount.job;
+    final name = global.profileData.name;
+    final job = global.profileData.job;
 
     Widget _buildWelcomeText() {
       return Container(
         child: Text(
           name,
-          style: TextStyle(fontSize: 24.0),
+          style: TextStyle(fontSize: 24.0, overflow: TextOverflow.ellipsis),
+          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.center,
+          softWrap: true,
         ),
       );
     }

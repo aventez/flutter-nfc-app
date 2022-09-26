@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/models/screens/edit_profile_screen.dart';
+import 'package:IDrop/models/screens/edit_profile_screen.dart';
 import 'package:provider/provider.dart';
 
 class EditProfileSubmitButton extends StatelessWidget {

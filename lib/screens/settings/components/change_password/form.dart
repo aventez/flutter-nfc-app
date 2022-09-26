@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/screens/settings/components/change_password/new_password_field.dart';
-import 'package:idrop/screens/settings/components/change_password/old_password_field.dart';
-import 'package:idrop/screens/settings/components/change_password/submit_button.dart';
+import 'package:IDrop/screens/settings/components/change_password/new_password_field.dart';
+import 'package:IDrop/screens/settings/components/change_password/old_password_field.dart';
+import 'package:IDrop/screens/settings/components/change_password/submit_button.dart';
 
 class ChangePasswordForm extends StatefulWidget {
   @override

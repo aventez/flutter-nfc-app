@@ -1,8 +1,8 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
-import 'package:idrop/models/common/global.dart';
-import 'package:idrop/utils/alerts.dart';
+import 'package:IDrop/models/common/global.dart';
+import 'package:IDrop/utils/alerts.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreenModel extends ChangeNotifier {

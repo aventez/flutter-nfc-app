@@ -1,6 +1,9 @@
+import 'package:IDrop/models/screens/profile_screen.dart';
+import 'package:IDrop/screens/profile/components/website_profile_link.dart';
 import 'package:flutter/material.dart';
-import 'package:idrop/models/common/global.dart';
-import 'package:idrop/screens/profile/components/profile_link.dart';
+import 'package:IDrop/models/common/global.dart';
+import 'package:IDrop/models/common/theme.dart';
+import 'package:IDrop/screens/profile/components/profile_link.dart';
 import 'package:provider/provider.dart';
 
 class Body extends StatelessWidget {
@@ -8,7 +11,10 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final global = Provider.of<GlobalModel>(context);
-    final profile = global.activeAccount.profile;
+    final theme = Provider.of<ThemeModel>(context);
+    final model = Provider.of<ProfileScreenModel>(context);
+    final profile = global.profileData.links;
+
     return Container(
       margin: EdgeInsets.only(bottom: 30.0),
       child: SingleChildScrollView(
@@ -21,7 +27,11 @@ class Body extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Your links',
-                  style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 28.0,
+                    fontWeight: FontWeight.bold,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ),
             ),
@@ -60,7 +70,7 @@ class Body extends StatelessWidget {
               brand: 'linkedinAccount',
               name: profile.linkedinAccount,
               message:
-                  'Go to your LinkedIn profile and scroll down to the “Contact” section. Find your LinkedIn profile URL and copy/paste here.',
+                  'Go to your LinkedIn profile, click on the 3 dots … next to your profil, click “share with” &  copy the link. Link needs to be https://www…..',
             ),
             ProfileLink(
               brand: 'phoneNumber',
@@ -123,12 +133,25 @@ class Body extends StatelessWidget {
               message:
                   'Enter your Snapchat username. (Without @). Example: idrop_social',
             ),
-            ProfileLink(
-              brand: 'website',
-              name: profile.website,
-              message:
-                  'Enter your website. Example: https://www.idropsocial.com',
-            ),
+            for (var website in profile.websites)
+              WebsiteProfileLink(
+                id: website.id,
+                icon: website.icon,
+                url: website.url,
+                name: website.name,
+              ),
+            ElevatedButton(
+              onPressed: () {
+                model.showCreateWebsiteModal();
+              },
+              child: Icon(Icons.add, color: Colors.white),
+              style: ElevatedButton.styleFrom(
+                shape: CircleBorder(),
+                padding: EdgeInsets.all(5),
+                primary: theme.getPalette().primaryColor,
+                onPrimary: theme.getPalette().secondaryColor,
+              ),
+            )
           ],
         ),
       ),

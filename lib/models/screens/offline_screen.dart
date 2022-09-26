@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:idrop/models/common/global.dart';
+import 'package:IDrop/models/common/global.dart';
 import 'package:provider/provider.dart';
 
 class OfflineScreenModel extends ChangeNotifier {
